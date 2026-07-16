@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Academic Archive - Overview</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: EB Garamond & Manrope -->
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        
+        /* Glassmorphism utility for Liquid Glass Aesthetic */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 0.5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+        }
+
+        .glass-panel-heavy {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(60px);
+            -webkit-backdrop-filter: blur(60px);
+            border: 0.5px solid rgba(255, 255, 255, 0.4);
+        }
+
+        /* Inner Glow for Liquid Glass edges */
+        .inner-glow {
+            box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Background animated gradient */
+        .liquid-bg {
+            background: linear-gradient(135deg, #faf9f8 0%, #e0e0ff 50%, #f2ded7 100%);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Navigation underline animation */
+        .nav-link-active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #4f55ae;
+            border-radius: 2px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(79, 85, 174, 0.2);
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#001e2e",
+                        "tertiary-container": "#79a1bd",
+                        "primary-fixed-dim": "#bfc2ff",
+                        "on-primary-fixed": "#02026b",
+                        "on-tertiary-container": "#05384f",
+                        "on-tertiary-fixed-variant": "#204b63",
+                        "on-primary-fixed-variant": "#373c95",
+                        "on-primary-container": "#232781",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#bfc2ff",
+                        "tertiary-fixed": "#c7e7ff",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "secondary": "#6a5b56",
+                        "surface-container": "#eeeeed",
+                        "outline": "#767683",
+                        "surface-dim": "#dadad9",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f4f3f2",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#2f3130",
+                        "secondary-fixed": "#f2ded7",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f1f0f0",
+                        "on-secondary-fixed-variant": "#51443f",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#e0e0ff",
+                        "on-secondary-container": "#70615c",
+                        "tertiary-fixed-dim": "#a3cce9",
+                        "outline-variant": "#c7c5d3",
+                        "surface-bright": "#faf9f8",
+                        "on-secondary-fixed": "#231915",
+                        "on-surface-variant": "#464652",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#d5c3bc",
+                        "background": "#faf9f8",
+                        "surface-container-highest": "#e3e2e1",
+                        "tertiary": "#3a637c",
+                        "on-error": "#ffffff",
+                        "on-surface": "#1a1c1c",
+                        "surface-variant": "#e3e2e1",
+                        "secondary-container": "#f2ded7",
+                        "surface-container-high": "#e9e8e7",
+                        "primary-container": "#8e94f2",
+                        "primary": "#4f55ae",
+                        "surface": "#faf9f8",
+                        "surface-tint": "#4f55ae"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["EB Garamond"],
+                        "display-lg": ["EB Garamond"],
+                        "label-md": ["Manrope"],
+                        "headline-lg-mobile": ["EB Garamond"],
+                        "headline-lg": ["EB Garamond"],
+                        "caption": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "body-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["28px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden min-h-screen liquid-bg">
+<!-- Top Navigation Dock (Shared Component) -->
+<header class="fixed top-0 w-full z-50 glass-panel border-b border-white/20 shadow-sm md:block hidden">
+<div class="flex justify-between items-center h-20 px-margin-desktop max-w-container-max mx-auto">
+<div class="text-headline-md font-headline-md font-bold text-on-surface">Academic Archive</div>
+<nav class="flex items-center gap-8">
+<a class="font-label-md text-label-md text-primary relative nav-link-active" href="#">Overview</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Assignments</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Evidence</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Rubric</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Reflection</a>
+</nav>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-md text-label-md inner-glow hover:scale-95 transition-transform active:scale-90">
+                Contact
+            </button>
+</div>
+</header>
+<!-- Mobile Header -->
+<header class="fixed top-0 w-full z-50 glass-panel md:hidden">
+<div class="flex justify-between items-center h-16 px-5">
+<div class="text-headline-md font-headline-md font-bold text-on-surface text-[20px]">Portfolio</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full glass-panel-heavy">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-32 md:pt-32 px-5 md:px-margin-desktop max-w-container-max mx-auto space-y-8">
+<!-- Hero Section: Portrait & Profile -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
+<div class="md:col-span-4 glass-panel rounded-3xl p-6 flex flex-col items-center text-center space-y-4 inner-glow">
+<div class="relative group">
+<div class="absolute inset-0 bg-primary/20 rounded-full blur-xl scale-110 opacity-50 group-hover:opacity-100 transition-opacity"></div>
+<div class="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-white glass-panel relative z-10">
+<img class="w-full h-full object-cover" data-alt="A professional studio portrait of a Vietnamese female student with long dark hair, wearing a clean, modern white academic blazer. The background is a soft, out-of-focus creative studio with warm lighting. The overall mood is intelligent, poised, and contemporary, matching a high-end academic portfolio aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcitF0EjCwQ1yygbNIW0ZcVtlV6-YwD8Hx6epY6ylHG52D-HK-4HXRVauq1OR_SOi6I5Ka-I9T1AuMSXFl8_La3wAoBKCJwVdatk6OJnP9tJql5-1XqsfF58nyCePMGcOc6roKPUOd42coCuuZCT86sVVipKi4N2pt2PbEvceLO6EG6X0kCQTZ4Nk_g6jlZzN5xoNIyfVeJyO0Yd-ffVSN03l8rQhCTsMbjAPv2uHUcH4HiIGqk7hgwgdYvriJ2_jV8_wnIux3v5vn"/>
+</div>
+</div>
+<div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Lương Ngọc Kim Chi</h1>
+<p class="font-label-md text-label-md text-primary mt-1 uppercase tracking-widest">Academic Portfolio 2025-26</p>
+<p class="font-caption text-caption text-on-surface-variant mt-3 max-w-xs mx-auto">
+                        Specializing in Korean Language &amp; Culture at ULIS - VNU. Committed to academic integrity and creative innovation.
+                    </p>
+</div>
+<div class="flex gap-3 w-full pt-4">
+<button class="flex-1 bg-primary text-on-primary py-3 rounded-2xl font-label-md text-label-md inner-glow">Download CV</button>
+<button class="w-12 h-12 flex items-center justify-center glass-panel rounded-2xl text-primary"><span class="material-symbols-outlined">share</span></button>
+</div>
+</div>
+<!-- Bento Stats -->
+<div class="md:col-span-8 grid grid-cols-2 gap-4">
+<div class="col-span-2 glass-panel rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden inner-glow">
+<div class="relative z-10">
+<span class="font-label-md text-label-md text-primary">Academic Progress</span>
+<h2 class="font-headline-md text-headline-md mt-2">Overall Performance</h2>
+</div>
+<div class="flex items-end justify-between mt-8 relative z-10">
+<div class="flex flex-col">
+<span class="text-4xl font-bold text-on-surface">92<span class="text-xl font-normal text-on-surface-variant">%</span></span>
+<span class="font-caption text-caption text-on-surface-variant">Credits Completed</span>
+</div>
+<div class="relative w-24 h-24">
+<!-- SVG Progress Ring -->
+<svg class="w-full h-full transform -rotate-90">
+<circle cx="48" cy="48" fill="transparent" r="40" stroke="rgba(79, 85, 174, 0.1)" stroke-width="8"></circle>
+<circle cx="48" cy="48" fill="transparent" r="40" stroke="#4f55ae" stroke-dasharray="251.2" stroke-dashoffset="20" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center font-bold text-primary">A+</div>
+</div>
+</div>
+<!-- Decorative liquid element -->
+<div class="absolute -right-10 -bottom-10 w-48 h-48 bg-primary/10 rounded-full blur-[80px]"></div>
+</div>
+<div class="glass-panel rounded-3xl p-6 inner-glow flex flex-col items-center justify-center text-center space-y-2">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-on-secondary-container">assignment</span>
+</div>
+<span class="text-2xl font-bold text-on-surface">14</span>
+<span class="font-caption text-caption text-on-surface-variant uppercase tracking-tight">Active Tasks</span>
+</div>
+<div class="glass-panel rounded-3xl p-6 inner-glow flex flex-col items-center justify-center text-center space-y-2">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant">verified</span>
+</div>
+<span class="text-2xl font-bold text-on-surface">08</span>
+<span class="font-caption text-caption text-on-surface-variant uppercase tracking-tight">Certifications</span>
+</div>
+</div>
+</section>
+<!-- Academic Integrity Card (Recreated from image reference) -->
+<section class="glass-panel rounded-[40px] p-8 md:p-12 relative overflow-hidden inner-glow">
+<div class="absolute inset-0 bg-on-tertiary-fixed opacity-[0.03] pointer-events-none"></div>
+<div class="relative z-10 max-w-3xl mx-auto text-center md:text-left">
+<span class="font-label-md text-label-md text-primary uppercase tracking-widest block mb-4">Academic Integrity</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-8 leading-tight">Cam kết Liêm chính Học thuật</h2>
+<div class="space-y-6 font-body-lg text-body-lg text-on-surface-variant italic leading-relaxed">
+<p>
+                        Em, Lương Ngọc Kim Chi, cam kết rằng các báo cáo và nội dung trong portfolio này phản ánh đúng quá trình học tập và thực hành của bản thân.
+                    </p>
+<p>
+                        Với em, AI có thể giúp tiết kiệm thời gian và gợi ý hướng làm, nhưng không thể thay thế hoàn toàn việc tự học và tự làm bài. Em không tạo minh chứng giả, không ghi những sản phẩm không có thật.
+                    </p>
+</div>
+<div class="mt-12 pt-8 border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-6">
+<div>
+<span class="font-label-md text-label-md text-primary uppercase block mb-1">Student</span>
+<p class="font-headline-md text-headline-md">Lương Ngọc Kim Chi</p>
+</div>
+<div class="px-8 py-4 glass-panel-heavy rounded-full border border-primary/20 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-md text-label-md">Verified Portfolio 2025</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Navigation Bento -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="glass-panel rounded-3xl p-6 group hover:bg-white/60 transition-all duration-500 cursor-pointer inner-glow flex flex-col justify-between h-48">
+<div class="flex justify-between items-start">
+<div class="w-12 h-12 rounded-2xl bg-primary-container/20 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">library_books</span>
+</div>
+<span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity">arrow_outward</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md">Assignments</h3>
+<p class="font-caption text-caption text-on-surface-variant">View research and case studies.</p>
+</div>
+</div>
+<div class="glass-panel rounded-3xl p-6 group hover:bg-white/60 transition-all duration-500 cursor-pointer inner-glow flex flex-col justify-between h-48">
+<div class="flex justify-between items-start">
+<div class="w-12 h-12 rounded-2xl bg-tertiary-fixed/40 flex items-center justify-center group-hover:bg-tertiary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">folder_special</span>
+</div>
+<span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity">arrow_outward</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md">Evidence</h3>
+<p class="font-caption text-caption text-on-surface-variant">Artifacts and work samples.</p>
+</div>
+</div>
+<div class="glass-panel rounded-3xl p-6 group hover:bg-white/60 transition-all duration-500 cursor-pointer inner-glow flex flex-col justify-between h-48">
+<div class="flex justify-between items-start">
+<div class="w-12 h-12 rounded-2xl bg-secondary-fixed/40 flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity">arrow_outward</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md">Reflection</h3>
+<p class="font-caption text-caption text-on-surface-variant">Personal growth and future goals.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full py-8 mt-auto glass-panel border-t border-outline-variant/30">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto gap-4">
+<div class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">ACADEMIC ARCHIVE</div>
+<p class="font-caption text-caption text-on-surface-variant">© 2025 ULIS - VNU. All Rights Reserved.</p>
+<div class="flex gap-6">
+<a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-colors" href="#">Credits</a>
+</div>
+</div>
+</footer>
+<!-- Mobile Bottom Navigation (Shared Component Style) -->
+<nav class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] z-50 glass-panel-heavy rounded-full px-6 py-4 flex justify-between items-center shadow-2xl border border-white/40">
+<a class="text-primary flex flex-col items-center" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-bold mt-1 uppercase tracking-tighter">Home</span>
+</a>
+<a class="text-on-surface-variant flex flex-col items-center" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="text-[10px] mt-1 uppercase tracking-tighter">Tasks</span>
+</a>
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center -translate-y-4 shadow-lg inner-glow">
+<span class="material-symbols-outlined text-white">add</span>
+</div>
+<a class="text-on-surface-variant flex flex-col items-center" href="#">
+<span class="material-symbols-outlined">verified</span>
+<span class="text-[10px] mt-1 uppercase tracking-tighter">Badges</span>
+</a>
+<a class="text-on-surface-variant flex flex-col items-center" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] mt-1 uppercase tracking-tighter">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for Liquid Cards
+        document.querySelectorAll('.glass-panel').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body></html>

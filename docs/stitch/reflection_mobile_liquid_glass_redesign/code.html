@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Reflection | Academic Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#001e2e",
+                    "tertiary-container": "#79a1bd",
+                    "primary-fixed-dim": "#bfc2ff",
+                    "on-primary-fixed": "#02026b",
+                    "on-tertiary-container": "#05384f",
+                    "on-tertiary-fixed-variant": "#204b63",
+                    "on-primary-fixed-variant": "#373c95",
+                    "on-primary-container": "#232781",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#bfc2ff",
+                    "tertiary-fixed": "#c7e7ff",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#1a1c1c",
+                    "secondary": "#6a5b56",
+                    "surface-container": "#eeeeed",
+                    "outline": "#767683",
+                    "surface-dim": "#dadad9",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f4f3f2",
+                    "error": "#ba1a1a",
+                    "inverse-surface": "#2f3130",
+                    "secondary-fixed": "#f2ded7",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#f1f0f0",
+                    "on-secondary-fixed-variant": "#51443f",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#e0e0ff",
+                    "on-secondary-container": "#70615c",
+                    "tertiary-fixed-dim": "#a3cce9",
+                    "outline-variant": "#c7c5d3",
+                    "surface-bright": "#faf9f8",
+                    "on-secondary-fixed": "#231915",
+                    "on-surface-variant": "#464652",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#d5c3bc",
+                    "background": "#faf9f8",
+                    "surface-container-highest": "#e3e2e1",
+                    "tertiary": "#3a637c",
+                    "on-error": "#ffffff",
+                    "on-surface": "#1a1c1c",
+                    "surface-variant": "#e3e2e1",
+                    "secondary-container": "#f2ded7",
+                    "surface-container-high": "#e9e8e7",
+                    "primary-container": "#8e94f2",
+                    "primary": "#4f55ae",
+                    "surface": "#faf9f8",
+                    "surface-tint": "#4f55ae"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "20px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "headline-md": ["EB Garamond"],
+                    "display-lg": ["EB Garamond"],
+                    "label-md": ["Manrope"],
+                    "headline-lg-mobile": ["EB Garamond"],
+                    "headline-lg": ["EB Garamond"],
+                    "caption": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "body-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-md": ["28px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #faf9f8;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 0.5px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+        }
+        .liquid-gradient {
+            background: linear-gradient(135deg, rgba(191, 194, 255, 0.2) 0%, rgba(242, 222, 215, 0.2) 50%, rgba(163, 204, 233, 0.2) 100%);
+            filter: blur(80px);
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tab-indicator {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: currentColor;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface selection:bg-primary/20">
+<!-- Dynamic Liquid Background -->
+<div class="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
+<div class="absolute w-[600px] h-[600px] liquid-gradient rounded-full top-[-10%] left-[-10%] animate-pulse" id="blob-1"></div>
+<div class="absolute w-[500px] h-[500px] liquid-gradient rounded-full bottom-[-10%] right-[-10%] opacity-60" id="blob-2"></div>
+</div>
+<!-- Mobile Header -->
+<header class="fixed top-0 left-0 right-0 z-50 glass-panel h-16 flex items-center justify-between px-margin-mobile md:hidden">
+<div class="flex flex-col">
+<span class="font-headline-md text-[18px] text-on-surface font-bold">Academic Archive</span>
+<span class="font-caption text-[10px] text-on-surface-variant uppercase tracking-widest">Reflection / Tổng Kết</span>
+</div>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="A soft-focus professional portrait of a female student with dark hair, set against a blurred academic library background. The lighting is warm and natural, following the high-fidelity glassmorphism aesthetic with a palette of lavender and soft creams." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6PYYjIP8bP-_HlrIEJ5rTEdpVbHIvgozubDsHt3b09koglcnQcKXhI_dcihOAjHxk-D5S_Bt93XGXzESYFTqASKcYmKicgdyifcCwPaVbDEXa65PJLdnJyNd7y2sRgcZieOW03OkuphKzRxOW5L3CoowWiR-fehslrDFe3xssFtj1lQNDLqlhsq6Ol1KKnRTHU1JV9vdlAKijYctNOvnACyuC0iJ6Be2YPp4mhWgV-TZ5eKd5j5pn3m_hjyCUAq7zrRtyj7ACVpvN"/>
+</div>
+</header>
+<!-- Content Canvas -->
+<main class="pt-24 pb-32 px-margin-mobile max-w-2xl mx-auto space-y-8">
+<!-- Header Section -->
+<section class="scroll-reveal active">
+<div class="mb-2">
+<span class="font-label-md text-primary uppercase tracking-[0.2em] text-[10px]">Academic Integrity</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface leading-tight">
+                Cam kết Liêm chính Học thuật
+            </h1>
+<div class="w-12 h-[1px] bg-outline-variant/50 mt-6 mb-8"></div>
+</section>
+<!-- Glass Content Card -->
+<article class="glass-panel rounded-3xl p-8 space-y-6 scroll-reveal active">
+<p class="font-body-md text-on-surface italic leading-relaxed">
+                Em, <span class="font-bold text-primary">Lương Ngọc Kim Chi</span>, cam kết rằng các báo cáo và nội dung trong portfolio này phản ánh đúng quá trình học tập và thực hành của bản thân. Trong quá trình làm, em có sử dụng AI như một công cụ hỗ trợ, chủ yếu để gợi ý cách trình bày, hỗ trợ sửa code và kiểm tra lại một số phần nội dung.
+            </p>
+<p class="font-body-md text-on-surface leading-relaxed">
+                Với em, AI có thể giúp tiết kiệm thời gian và gợi ý hướng làm, nhưng không thể thay thế hoàn toàn việc tự học và tự làm bài. Em không tạo minh chứng giả, không ghi những sản phẩm không có thật và không cố tình trình bày sai quá trình thực hiện các bài tập của mình.
+            </p>
+<div class="pt-4">
+<p class="font-body-md text-on-surface-variant">
+                    Em cảm ơn thầy cô đã dành thời gian xem portfolio này.
+                </p>
+</div>
+<!-- Signature Block -->
+<div class="pt-12 border-t border-outline-variant/20">
+<div class="flex flex-col space-y-4">
+<div>
+<span class="font-label-md text-on-surface-variant uppercase text-[10px] tracking-widest block mb-2">Student</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Lương Ngọc Kim Chi</h2>
+</div>
+<div class="py-6 flex justify-center items-center glass-panel rounded-2xl bg-white/30 border-dashed border-primary/20">
+<img class="h-20 opacity-80 mix-blend-multiply" data-alt="A refined digital signature of 'Lương Ngọc Kim Chi' in a sophisticated, minimalist script font. The signature appears as if written with a light lavender ink on translucent vellum paper, matching the ethereal, intellectual academic brand style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzGMgICNCppohVzVkJXL9AGa6GK5sP_yp_ao52sCbm8C-TqDELa5V4Jy4UCVXpm6dnkAUzRGX5KyKeF3urSb_IphRjlHZPFqu0UjYRrIsGHFqvZ5guYZiDxYve7yu1Xe1EjfyDaUwhmi9f5g2uHs1ZiYbRhO4cDZaW_P95JCPz0G_qXEOFTXm1Eaqz1qbXAPQ5GzmOKUZnJbofFE-uVQLc5UY7IETBlOhuxPNxKcj-6HznCLzCORycZl20siQcrLk4Nzb-emIszUir"/>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant">
+<span class="font-caption text-caption">Digital Signature ID: 2025-ARCH-KCHI</span>
+<span class="font-caption text-caption">Oct 24, 2025</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Meta Information Card -->
+<section class="grid grid-cols-2 gap-4 scroll-reveal">
+<div class="glass-panel p-5 rounded-2xl">
+<span class="font-label-md text-[10px] text-on-surface-variant uppercase block mb-1">Institution</span>
+<span class="font-body-md font-bold block">ULIS - VNU</span>
+</div>
+<div class="glass-panel p-5 rounded-2xl">
+<span class="font-label-md text-[10px] text-on-surface-variant uppercase block mb-1">Academic Year</span>
+<span class="font-body-md font-bold block">2025-26</span>
+</div>
+</section>
+<!-- Decorative Image -->
+<section class="rounded-3xl overflow-hidden glass-panel h-64 relative scroll-reveal">
+<img class="w-full h-full object-cover opacity-80" data-alt="An artistic close-up of a glass prism refracting soft pastel light into a rainbow spectrum. The aesthetic is clean, intellectual, and fluid, representing the 'Liquid Glass' brand identity. Subtle dust particles dance in the light, creating a sense of calm focus and academic wonder." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSGMH30GfeGZq3kOCu8m7pCkatU1BYOoJTAZT8-JTvW9Z2JRVql-kmbkNPYTGL1CuTkmnYhhLZuNyGIT4g7NZkq-ZnxDjoVr00bQInMWkR2Cvi11dmf-mmI7Onx2dnj9viCnM8_XfIeeicW9MKoJ5Vu5NZdS7cf1ckXU-eze3gTQ8yDFlnL8tvr1D_SKXYbdXV7G6X3hjA9oS3rjEZ8EOa-iSMECj3RTFd83GWkOS4mHeUfAodMz8ULIHthYnd7vBfHJ4v7xmWI2Po"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent flex flex-col justify-end p-8">
+<h3 class="font-headline-md text-headline-md text-on-surface">Reflection on Progress</h3>
+<p class="font-caption text-on-surface-variant">Documentation of the academic journey through 2025.</p>
+</div>
+</section>
+</main>
+<!-- FAB Action -->
+<div class="fixed bottom-24 right-margin-mobile z-50">
+<button class="bg-primary text-on-primary w-14 h-14 rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined">file_download</span>
+</button>
+</div>
+<!-- Mobile Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 h-20 glass-panel flex items-stretch justify-around px-4 z-50 border-t border-white/20">
+<!-- Mapping to JSON tab_labels & icons -->
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-caption text-[10px]">Overview</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined mb-1">assignment</span>
+<span class="font-caption text-[10px]">Tasks</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined mb-1">verified</span>
+<span class="font-caption text-[10px]">Evidence</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined mb-1">rule</span>
+<span class="font-caption text-[10px]">Rubric</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary relative">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="font-caption text-[10px] font-bold">Reflection</span>
+<div class="tab-indicator"></div>
+</div>
+</nav>
+<script>
+        // Micro-interactions and Scroll Reveal
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.scroll-reveal').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Parallax Blobs
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const blob1 = document.getElementById('blob-1');
+                const blob2 = document.getElementById('blob-2');
+                
+                blob1.style.transform = `translate(${scrolled * 0.1}px, ${scrolled * 0.1}px)`;
+                blob2.style.transform = `translate(${-scrolled * 0.05}px, ${-scrolled * 0.05}px)`;
+            });
+        });
+    </script>
+</body></html>

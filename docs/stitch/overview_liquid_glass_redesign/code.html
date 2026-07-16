@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Digital Catalyst — Academic Archive | Lương Ngọc Kim Chi</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed": "#001e2e",
+                      "tertiary-container": "#79a1bd",
+                      "primary-fixed-dim": "#bfc2ff",
+                      "on-primary-fixed": "#02026b",
+                      "on-tertiary-container": "#05384f",
+                      "on-tertiary-fixed-variant": "#204b63",
+                      "on-primary-fixed-variant": "#373c95",
+                      "on-primary-container": "#232781",
+                      "on-secondary": "#ffffff",
+                      "inverse-primary": "#bfc2ff",
+                      "tertiary-fixed": "#c7e7ff",
+                      "on-tertiary": "#ffffff",
+                      "on-background": "#1a1c1c",
+                      "secondary": "#6a5b56",
+                      "surface-container": "#eeeeed",
+                      "outline": "#767683",
+                      "surface-dim": "#dadad9",
+                      "error-container": "#ffdad6",
+                      "surface-container-low": "#f4f3f2",
+                      "error": "#ba1a1a",
+                      "inverse-surface": "#2f3130",
+                      "secondary-fixed": "#f2ded7",
+                      "on-primary": "#ffffff",
+                      "inverse-on-surface": "#f1f0f0",
+                      "on-secondary-fixed-variant": "#51443f",
+                      "on-error-container": "#93000a",
+                      "primary-fixed": "#e0e0ff",
+                      "on-secondary-container": "#70615c",
+                      "tertiary-fixed-dim": "#a3cce9",
+                      "outline-variant": "#c7c5d3",
+                      "surface-bright": "#faf9f8",
+                      "on-secondary-fixed": "#231915",
+                      "on-surface-variant": "#464652",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed-dim": "#d5c3bc",
+                      "background": "#faf9f8",
+                      "surface-container-highest": "#e3e2e1",
+                      "tertiary": "#3a637c",
+                      "on-error": "#ffffff",
+                      "on-surface": "#1a1c1c",
+                      "surface-variant": "#e3e2e1",
+                      "secondary-container": "#f2ded7",
+                      "surface-container-high": "#e9e8e7",
+                      "primary-container": "#8e94f2",
+                      "primary": "#4f55ae",
+                      "surface": "#faf9f8",
+                      "surface-tint": "#4f55ae"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-max": "1280px",
+                      "gutter": "24px",
+                      "margin-desktop": "64px",
+                      "margin-mobile": "20px",
+                      "unit": "8px"
+              },
+              "fontFamily": {
+                      "headline-md": ["EB Garamond"],
+                      "display-lg": ["EB Garamond"],
+                      "label-md": ["Manrope"],
+                      "headline-lg-mobile": ["EB Garamond"],
+                      "headline-lg": ["EB Garamond"],
+                      "caption": ["Manrope"],
+                      "body-lg": ["Manrope"],
+                      "body-md": ["Manrope"]
+              },
+              "fontSize": {
+                      "headline-md": ["28px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                      "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                      "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                      "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                      "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #faf9f8;
+            color: #1a1c1c;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 0.5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+        }
+
+        .glass-card-dark {
+            background: rgba(26, 28, 28, 0.8);
+            backdrop-filter: blur(60px);
+            -webkit-backdrop-filter: blur(60px);
+            border: 0.5px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .liquid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            filter: blur(80px);
+            opacity: 0.6;
+        }
+
+        .blob {
+            position: absolute;
+            width: 50vw;
+            height: 50vw;
+            border-radius: 50%;
+            mix-blend-mode: multiply;
+            animation: move 20s infinite alternate ease-in-out;
+        }
+
+        @keyframes move {
+            from { transform: translate(-10%, -10%) scale(1); }
+            to { transform: translate(20%, 20%) scale(1.2); }
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .inner-glow {
+            box-shadow: inset 1px 1px 0px rgba(255,255,255,0.4);
+        }
+
+        .nav-item-active {
+            position: relative;
+        }
+        .nav-item-active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: currentColor;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md selection:bg-primary/20 selection:text-primary">
+<!-- Liquid Background Elements -->
+<div class="liquid-bg overflow-hidden pointer-events-none">
+<div class="blob bg-primary-fixed-dim top-[-10%] left-[-10%]" style="animation-duration: 25s;"></div>
+<div class="blob bg-tertiary-fixed bottom-[-10%] right-[-10%]" style="animation-delay: -5s; animation-duration: 30s;"></div>
+<div class="blob bg-secondary-fixed top-[20%] right-[10%]" style="animation-delay: -10s; animation-duration: 22s;"></div>
+</div>
+<!-- Side Navigation Shell (from JSON) -->
+<aside class="h-full w-80 fixed left-0 top-0 hidden lg:flex flex-col bg-inverse-surface dark:bg-on-tertiary-fixed backdrop-blur-[60px] border-r border-white/10 shadow-2xl z-[60] py-8">
+<div class="px-8 mb-12">
+<h1 class="font-headline-lg text-headline-lg text-surface-bright leading-tight">Academic Archive</h1>
+<p class="font-label-md text-label-md text-surface-variant/60 tracking-widest mt-2">EST. 2025</p>
+</div>
+<div class="flex-1 space-y-1">
+<!-- 01 Overview - Active State as per mapping -->
+<a class="bg-primary-container text-on-primary-container rounded-xl mx-4 my-1 flex items-center p-4 group transition-all translate-x-1" href="#">
+<span class="material-symbols-outlined mr-4">home</span>
+<span class="font-label-md">01 Overview</span>
+</a>
+<a class="text-surface-variant hover:text-surface-bright flex items-center p-4 mx-4 my-1 transition-all hover:bg-white/5 rounded-xl group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100 transition-opacity">assignment</span>
+<span class="font-label-md">02 Assignments</span>
+</a>
+<a class="text-surface-variant hover:text-surface-bright flex items-center p-4 mx-4 my-1 transition-all hover:bg-white/5 rounded-xl group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100 transition-opacity">verified</span>
+<span class="font-label-md">03 Evidence</span>
+</a>
+<a class="text-surface-variant hover:text-surface-bright flex items-center p-4 mx-4 my-1 transition-all hover:bg-white/5 rounded-xl group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100 transition-opacity">rule</span>
+<span class="font-label-md">04 Rubric</span>
+</a>
+<a class="text-surface-variant hover:text-surface-bright flex items-center p-4 mx-4 my-1 transition-all hover:bg-white/5 rounded-xl group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100 transition-opacity">psychology</span>
+<span class="font-label-md">05 Reflection</span>
+</a>
+</div>
+<div class="mt-auto px-4 space-y-1">
+<div class="flex items-center space-x-4 p-4 mb-4 glass-card-dark rounded-2xl mx-2 border-white/5">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-white/20 bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A professional, high-end studio portrait of a Vietnamese female student, Lương Ngọc Kim Chi, with a serene expression and soft, directional lighting that emphasizes the sophisticated academic aesthetic. The background is a minimalist, out-of-focus academic hall with soft lavender and cream tones, mirroring the Liquid Glass theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAME7-XgObJ6ArlAk4-DxYUCDv3uIIqII3YxRKnoulz6frMje8C2lb-jYpnT64IutTI1lT42Vy0YtyCrN6_H9GDXDm0xhVI0Oc6QdRrVSoqUy4iOm7Wt55iGitSyqz0KWWLfaz2CgrLZXdUDGB1Pr6OjMM4qBUBm_kFrVvCm66DKdvRb0ePt5EllJmJAx5HkIAxL0IHz_eqBx86q28MvTaMYZEtLk7RwkVhwAo0eszcod1v51VQqLYmxw2PJt515Y2y3mV1WEQHzIGk"/>
+</div>
+<div>
+<p class="font-label-md text-label-md text-surface-bright">Lương Ngọc Kim Chi</p>
+<p class="font-caption text-caption text-surface-variant">Student ID: 25010922</p>
+</div>
+</div>
+<a class="text-surface-variant hover:text-surface-bright flex items-center p-3 mx-4 rounded-lg hover:bg-white/5 transition-all text-sm" href="#">
+<span class="material-symbols-outlined mr-3 text-lg">archive</span> Archive
+            </a>
+<a class="text-surface-variant hover:text-surface-bright flex items-center p-3 mx-4 rounded-lg hover:bg-white/5 transition-all text-sm" href="#">
+<span class="material-symbols-outlined mr-3 text-lg">settings</span> Settings
+            </a>
+<button class="w-full mt-6 bg-primary-fixed text-on-primary-fixed py-4 rounded-xl font-label-md hover:opacity-90 transition-opacity inner-glow">
+                Download CV
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-80 min-h-screen flex flex-col relative">
+<!-- Top Navigation (Mobile/Tablet and Auxiliary) -->
+<header class="fixed top-0 right-0 left-0 lg:left-80 z-50 bg-white/40 dark:bg-black/40 backdrop-blur-[40px] border-b border-white/20 shadow-sm h-20 flex justify-between items-center px-margin-mobile md:px-margin-desktop">
+<div class="flex items-center">
+<span class="lg:hidden font-headline-md font-bold text-on-surface mr-4">Archive</span>
+<div class="hidden md:flex space-x-8">
+<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1 transition-all" href="#">Overview</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Assignments</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Evidence</a>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 rounded-full hover:bg-white/20 transition-all">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-md scale-95 active:scale-90 transition-transform">
+                    Contact
+                </button>
+</div>
+</header>
+<!-- Content Area -->
+<div class="pt-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full pb-20">
+<!-- Hero Section -->
+<section class="mt-12 md:mt-24 mb-20 relative">
+<div class="relative z-10">
+<span class="inline-block px-4 py-1 rounded-full glass-card border-primary/20 text-primary font-label-md text-xs mb-6 uppercase tracking-widest">Digital Archive 2025-26</span>
+<h2 class="font-display-lg text-display-lg leading-none max-w-4xl italic">
+                        The Digital Catalyst — <br/>
+<span class="not-italic font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-tertiary">Academic Archive</span>
+</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-8 max-w-2xl leading-relaxed">
+                        An intersection of Chinese Language and Culture through a modern lens. Exploring the fluidity of translation, the structure of heritage, and the future of academic synthesis.
+                    </p>
+</div>
+<!-- Decorative Abstract Animation -->
+<div class="absolute top-[-20%] right-[-10%] w-[500px] h-[500px] pointer-events-none opacity-40">
+
+</div>
+</section>
+<!-- Personal Intro Bento -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-20">
+<!-- Portrait Card -->
+<div class="lg:col-span-5 h-[500px] glass-card rounded-3xl overflow-hidden group relative">
+<img class="absolute inset-0 w-full h-full object-cover grayscale-[0.2] group-hover:scale-105 transition-transform duration-1000" data-alt="A breathtaking architectural photograph of the ULIS-VNU campus at sunrise, captured in a cinematic wide shot. The building's modernist lines are softened by a mystical morning mist and a soft lavender-hued sky, perfectly aligning with the Liquid Glass design aesthetic. High-key lighting creates a luminous and intellectual atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA48GXEK0ZVtgakQJE5j2s22Y7s4BlN8N7be8Qr8Kfk6XO44hqv-uX6dB-p5vFsGem5rBAP8f1Z9Y-ooUiLy8ZeIUfQEtk45QnzGwBR0NurGo4g_0W-ESLoc6uNwJ4UkZEeLxxBaEER09Bs_ZcCjzRIFSX5WUtYUpXUoJZfVFjiuGiLznHGv1bq7U1yXk-idlXjP43i5QilRDPmMnvZ4H36cfNssQNswiyynUzmSRwdQulw3oN0w-uWInl6NpomLyTs8JB67JiM3Bev"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-10 text-white">
+<p class="font-label-md text-primary-fixed-dim mb-2 uppercase">Lead Student Researcher</p>
+<h3 class="font-headline-lg text-headline-lg">Lương Ngọc Kim Chi</h3>
+<p class="font-body-md opacity-80 mt-2">Ngôn ngữ và Văn hóa Hàn Quốc / Trung Quốc • ULIS - VNU</p>
+</div>
+</div>
+<!-- Readiness Stats -->
+<div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Readiness Card -->
+<div class="glass-card rounded-3xl p-8 flex flex-col justify-between group hover:bg-white/60 transition-colors">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<h4 class="font-headline-md text-headline-md text-on-surface">Portfolio Readiness</h4>
+<p class="font-body-md text-on-surface-variant mt-2">Final validation complete for Academic Year 25/26.</p>
+</div>
+<div class="mt-8">
+<div class="flex justify-between items-end mb-2">
+<span class="font-display-lg text-display-lg text-primary">100<span class="text-4xl">%</span></span>
+<span class="font-label-md text-on-surface-variant pb-3">Operational</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-full animate-pulse"></div>
+</div>
+</div>
+</div>
+<!-- Academic Progress -->
+<div class="glass-card rounded-3xl p-8 flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-tertiary text-4xl mb-4">school</span>
+<h4 class="font-headline-md text-headline-md text-on-surface">Academic Progress</h4>
+</div>
+<ul class="space-y-4 mt-6">
+<li class="flex items-center justify-between">
+<span class="font-body-md text-on-surface-variant">Core Curriculum</span>
+<span class="px-3 py-1 bg-tertiary/10 text-tertiary rounded-full font-label-md text-xs">98%</span>
+</li>
+<li class="flex items-center justify-between">
+<span class="font-body-md text-on-surface-variant">Cultural Synthesis</span>
+<span class="px-3 py-1 bg-tertiary/10 text-tertiary rounded-full font-label-md text-xs">100%</span>
+</li>
+<li class="flex items-center justify-between">
+<span class="font-body-md text-on-surface-variant">Research Thesis</span>
+<span class="px-3 py-1 bg-tertiary/10 text-tertiary rounded-full font-label-md text-xs">94%</span>
+</li>
+</ul>
+</div>
+<!-- Quote/Motto Card -->
+<div class="md:col-span-2 glass-card rounded-3xl p-10 flex items-center justify-center text-center bg-gradient-to-br from-white/40 to-primary-fixed/20">
+<blockquote class="font-headline-md text-headline-md italic text-on-surface-variant max-w-2xl leading-relaxed">
+                            "Language is the fluid medium through which we synthesize history and future innovation."
+                        </blockquote>
+</div>
+</div>
+</div>
+<!-- Navigation Cards Section -->
+<section class="mb-20">
+<div class="flex items-end justify-between mb-10">
+<div>
+<h3 class="font-headline-lg text-headline-lg">Explore Modules</h3>
+<p class="font-body-md text-on-surface-variant mt-2">Deep dives into the portfolio's architectural layers.</p>
+</div>
+<div class="hidden md:flex space-x-2">
+<button class="p-3 rounded-full glass-card hover:bg-primary hover:text-white transition-all"><span class="material-symbols-outlined">west</span></button>
+<button class="p-3 rounded-full glass-card hover:bg-primary hover:text-white transition-all"><span class="material-symbols-outlined">east</span></button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card: Assignments -->
+<a class="group glass-card rounded-[2rem] p-8 hover:translate-y-[-8px] transition-all duration-500 overflow-hidden relative" href="#">
+<div class="absolute top-[-20%] right-[-20%] w-40 h-40 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all"></div>
+<div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-12">
+<span class="material-symbols-outlined text-3xl">assignment</span>
+</div>
+<h5 class="font-headline-md text-headline-md mb-2">Assignments</h5>
+<p class="font-body-md text-on-surface-variant mb-8">Detailed documentation of curriculum tasks and projects.</p>
+<div class="flex items-center text-primary font-label-md">
+                            VIEW MODULE <span class="material-symbols-outlined ml-2 text-sm group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</div>
+</a>
+<!-- Card: Evidence -->
+<a class="group glass-card rounded-[2rem] p-8 hover:translate-y-[-8px] transition-all duration-500 overflow-hidden relative" href="#">
+<div class="absolute top-[-20%] right-[-20%] w-40 h-40 bg-tertiary/10 rounded-full blur-3xl group-hover:bg-tertiary/20 transition-all"></div>
+<div class="w-16 h-16 rounded-2xl bg-tertiary/10 flex items-center justify-center text-tertiary mb-12">
+<span class="material-symbols-outlined text-3xl">verified</span>
+</div>
+<h5 class="font-headline-md text-headline-md mb-2">Evidence</h5>
+<p class="font-body-md text-on-surface-variant mb-8">Verified artifacts showcasing applied linguistic expertise.</p>
+<div class="flex items-center text-tertiary font-label-md">
+                            VIEW MODULE <span class="material-symbols-outlined ml-2 text-sm group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</div>
+</a>
+<!-- Card: Rubric -->
+<a class="group glass-card rounded-[2rem] p-8 hover:translate-y-[-8px] transition-all duration-500 overflow-hidden relative" href="#">
+<div class="absolute top-[-20%] right-[-20%] w-40 h-40 bg-secondary/10 rounded-full blur-3xl group-hover:bg-secondary/20 transition-all"></div>
+<div class="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary mb-12">
+<span class="material-symbols-outlined text-3xl">rule</span>
+</div>
+<h5 class="font-headline-md text-headline-md mb-2">Rubric</h5>
+<p class="font-body-md text-on-surface-variant mb-8">Performance metrics and evaluative standards for all works.</p>
+<div class="flex items-center text-secondary font-label-md">
+                            VIEW MODULE <span class="material-symbols-outlined ml-2 text-sm group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</div>
+</a>
+</div>
+</section>
+<!-- Contact / Footer Section -->
+<footer class="mt-20 pt-20 border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center text-on-surface-variant space-y-8 md:space-y-0">
+<div class="text-center md:text-left">
+<p class="font-label-md text-label-md uppercase tracking-widest text-primary mb-2">ULIS - VNU ACADEMIC ARCHIVE</p>
+<p class="font-caption text-caption opacity-60">© 2025 ULIS - VNU. All Rights Reserved.</p>
+</div>
+<div class="flex space-x-12">
+<a class="font-caption text-caption hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-caption text-caption hover:text-primary transition-colors" href="#">Institutional Credits</a>
+<a class="font-caption text-caption hover:text-primary transition-colors" href="#">Social Connect</a>
+</div>
+<div class="flex space-x-4">
+<button class="w-10 h-10 rounded-full glass-card flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined text-lg">mail</span>
+</button>
+<button class="w-10 h-10 rounded-full glass-card flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined text-lg">public</span>
+</button>
+</div>
+</footer>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Mobile only, from logic) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 glass-card border-t border-white/20 z-[100] flex justify-around items-center px-4">
+<button class="flex flex-col items-center text-primary">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-label-md uppercase">Home</span>
+</button>
+<button class="flex flex-col items-center text-on-surface-variant">
+<span class="material-symbols-outlined">assignment</span>
+<span class="text-[10px] font-label-md uppercase">Tasks</span>
+</button>
+<button class="flex flex-col items-center text-on-surface-variant">
+<span class="material-symbols-outlined">verified</span>
+<span class="text-[10px] font-label-md uppercase">Proof</span>
+</button>
+<button class="flex flex-col items-center text-on-surface-variant">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-label-md uppercase">Profile</span>
+</button>
+</nav>
+<script>
+        // Subtle Mouse Interaction for Glass Refraction
+        document.addEventListener('mousemove', (e) => {
+            const blobs = document.querySelectorAll('.blob');
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+            
+            blobs.forEach((blob, index) => {
+                const speed = (index + 1) * 0.05;
+                const x = (window.innerWidth - mouseX * speed) / 100;
+                const y = (window.innerHeight - mouseY * speed) / 100;
+                blob.style.transform = `translate(${x}px, ${y}px) scale(${1 + speed})`;
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(card);
+        });
+    </script>
+</body></html>

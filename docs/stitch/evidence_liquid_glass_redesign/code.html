@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Academic Milestone Ledger | Academic Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#001e2e",
+                    "tertiary-container": "#79a1bd",
+                    "primary-fixed-dim": "#bfc2ff",
+                    "on-primary-fixed": "#02026b",
+                    "on-tertiary-container": "#05384f",
+                    "on-tertiary-fixed-variant": "#204b63",
+                    "on-primary-fixed-variant": "#373c95",
+                    "on-primary-container": "#232781",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#bfc2ff",
+                    "tertiary-fixed": "#c7e7ff",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#1a1c1c",
+                    "secondary": "#6a5b56",
+                    "surface-container": "#eeeeed",
+                    "outline": "#767683",
+                    "surface-dim": "#dadad9",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f4f3f2",
+                    "error": "#ba1a1a",
+                    "inverse-surface": "#2f3130",
+                    "secondary-fixed": "#f2ded7",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#f1f0f0",
+                    "on-secondary-fixed-variant": "#51443f",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#e0e0ff",
+                    "on-secondary-container": "#70615c",
+                    "tertiary-fixed-dim": "#a3cce9",
+                    "outline-variant": "#c7c5d3",
+                    "surface-bright": "#faf9f8",
+                    "on-secondary-fixed": "#231915",
+                    "on-surface-variant": "#464652",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#d5c3bc",
+                    "background": "#faf9f8",
+                    "surface-container-highest": "#e3e2e1",
+                    "tertiary": "#3a637c",
+                    "on-error": "#ffffff",
+                    "on-surface": "#1a1c1c",
+                    "surface-variant": "#e3e2e1",
+                    "secondary-container": "#f2ded7",
+                    "surface-container-high": "#e9e8e7",
+                    "primary-container": "#8e94f2",
+                    "primary": "#4f55ae",
+                    "surface": "#faf9f8",
+                    "surface-tint": "#4f55ae"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "20px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "headline-md": ["EB Garamond"],
+                    "display-lg": ["EB Garamond"],
+                    "label-md": ["Manrope"],
+                    "headline-lg-mobile": ["EB Garamond"],
+                    "headline-lg": ["EB Garamond"],
+                    "caption": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "body-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-md": ["28px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: #faf9f8;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 0.5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+        }
+        .glass-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px 0 rgba(79, 85, 174, 0.1);
+        }
+        .liquid-gradient {
+            background: radial-gradient(circle at top left, #e0e0ff, transparent 70%),
+                        radial-gradient(circle at bottom right, #c7e7ff, transparent 70%);
+        }
+        .inner-glow {
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .gauge-ring {
+            transition: stroke-dashoffset 1s ease-in-out;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col md:flex-row">
+<!-- SIDEBAR NAVIGATION (Anchored Shared Component) -->
+<aside class="h-full w-80 fixed left-0 top-0 hidden lg:flex flex-col bg-inverse-surface dark:bg-on-tertiary-fixed backdrop-blur-[60px] border-r border-white/10 shadow-2xl py-8 z-50">
+<div class="px-8 mb-12">
+<h1 class="font-headline-lg text-headline-lg text-surface-bright leading-tight">Academic Archive</h1>
+<p class="font-label-md text-label-md text-surface-variant/60 uppercase tracking-tighter mt-2">Portfolio 2025-26</p>
+</div>
+<div class="flex-1 space-y-1">
+<a class="text-surface-variant hover:text-surface-bright flex items-center p-4 mx-4 my-1 transition-all hover:bg-white/5 rounded-xl group" href="#">
+<span class="material-symbols-outlined mr-4 group-hover:scale-110 transition-transform" data-icon="home">home</span>
+<span class="font-body-md text-body-md">01 Overview</span>
+</a>
+<a class="text-surface-variant hover:text-surface-bright flex items-center p-4 mx-4 my-1 transition-all hover:bg-white/5 rounded-xl group" href="#">
+<span class="material-symbols-outlined mr-4 group-hover:scale-110 transition-transform" data-icon="assignment">assignment</span>
+<span class="font-body-md text-body-md">02 Assignments</span>
+</a>
+<!-- Active State: Evidence -->
+<a class="bg-primary-container text-on-primary-container rounded-xl mx-4 my-1 flex items-center p-4 shadow-lg group" href="#">
+<span class="material-symbols-outlined mr-4 group-hover:scale-110 transition-transform" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-body-md text-body-md font-semibold">03 Evidence</span>
+</a>
+<a class="text-surface-variant hover:text-surface-bright flex items-center p-4 mx-4 my-1 transition-all hover:bg-white/5 rounded-xl group" href="#">
+<span class="material-symbols-outlined mr-4 group-hover:scale-110 transition-transform" data-icon="rule">rule</span>
+<span class="font-body-md text-body-md">04 Rubric</span>
+</a>
+<a class="text-surface-variant hover:text-surface-bright flex items-center p-4 mx-4 my-1 transition-all hover:bg-white/5 rounded-xl group" href="#">
+<span class="material-symbols-outlined mr-4 group-hover:scale-110 transition-transform" data-icon="psychology">psychology</span>
+<span class="font-body-md text-body-md">05 Reflection</span>
+</a>
+</div>
+<div class="px-8 mt-auto pt-8 border-t border-white/5">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-container">
+<img class="w-full h-full object-cover" data-alt="A professional, artistic portrait of a Vietnamese female student with soft studio lighting, focused gaze, and a minimalist academic background. The color palette is neutral with soft lavender highlights, reflecting a clean light-mode aesthetic. High-fidelity glassmorphism elements are subtly integrated into the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmQfZkQcIHOFHcETQbnAcQowcEdbUuG6Gmg1uOcDW2szToiAKRVLXhTY-DKzAoIguS8-YogL3gwqc2lC23KHLlbqPNFBn8Nq9EK_rj9X9EcwbpvJ7_6zKPG_3MNgDUIe3scpK2cmCe815Glq7JbRKv1JPuXOvtFNhKI_sF-go9FXHSprqe3T5SPtnaBbAEQfM_c6dbTFSTA4oJELRhEViwhq5M4L_9c7cxZpMCWH6lQ6AMS5CLU3np2DeAFneStk5_d1wtU3HwC4n2"/>
+</div>
+<div>
+<h3 class="text-surface-bright font-label-md text-label-md">Kim Chi</h3>
+<p class="text-surface-variant/70 text-caption font-caption">VNU - ULIS</p>
+</div>
+</div>
+<button class="w-full bg-white/10 hover:bg-white/20 text-surface-bright py-3 rounded-xl font-label-md text-label-md transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="download">download</span>
+                Download CV
+            </button>
+</div>
+</aside>
+<!-- MOBILE TOP BAR (Shared Component Context) -->
+<header class="lg:hidden fixed top-0 w-full z-50 bg-white/40 backdrop-blur-[40px] h-16 flex justify-between items-center px-margin-mobile border-b border-white/20">
+<h1 class="font-headline-md text-headline-md text-on-surface">Academic Archive</h1>
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+</header>
+<!-- MAIN CONTENT CANVAS -->
+<main class="flex-1 lg:ml-80 pt-24 lg:pt-12 px-margin-mobile lg:px-margin-desktop pb-12 relative min-h-screen">
+<!-- Atmospheric Background Shaders -->
+
+<div class="max-w-container-max mx-auto space-y-12">
+<!-- HEADER SECTION -->
+<header class="flex flex-col md:flex-row justify-between items-end gap-6">
+<div>
+<div class="flex items-center gap-2 text-primary mb-2">
+<span class="material-symbols-outlined text-[20px]" data-icon="verified_user">verified_user</span>
+<span class="font-label-md text-label-md uppercase tracking-widest">Section 03 / Proof of Competency</span>
+</div>
+<h2 class="font-display-lg text-display-lg text-on-surface">Academic Milestone Ledger</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-4">
+                        A curated repository of scholarly evidence, documenting the progression of research and assignment execution for the 2025-26 academic cycle.
+                    </p>
+</div>
+<div class="flex flex-col items-center justify-center glass-panel p-6 rounded-3xl w-48 h-48 relative overflow-hidden group">
+<svg class="w-32 h-32 -rotate-90">
+<circle class="text-surface-container-highest" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary gauge-ring" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-dasharray="364.4" stroke-dashoffset="0" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center pt-2">
+<span class="font-headline-lg text-headline-lg text-on-surface">100%</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase text-[10px]">Ready</span>
+</div>
+</div>
+</header>
+<!-- ACTION DOCK (Custom Horizontal Nav for specific page) -->
+<div class="glass-panel p-2 rounded-full flex gap-1 w-fit">
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-md text-label-md transition-all active:scale-95">All Files</button>
+<button class="hover:bg-white/40 text-on-surface-variant px-6 py-2 rounded-full font-label-md text-label-md transition-all">Reports</button>
+<button class="hover:bg-white/40 text-on-surface-variant px-6 py-2 rounded-full font-label-md text-label-md transition-all">Assets</button>
+</div>
+<!-- EVIDENCE BENTO GRID / TABLE -->
+<div class="glass-panel overflow-hidden rounded-3xl">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low/50 border-b border-outline-variant/30">
+<tr>
+<th class="p-6 font-label-md text-label-md text-on-surface-variant uppercase">Evidence Reference</th>
+<th class="p-6 font-label-md text-label-md text-on-surface-variant uppercase">Classification</th>
+<th class="p-6 font-label-md text-label-md text-on-surface-variant uppercase">Status</th>
+<th class="p-6 font-label-md text-label-md text-on-surface-variant uppercase text-right">Access Points</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Row 1 -->
+<tr class="glass-card group">
+<td class="p-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+</div>
+<div>
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Linguistic Morphology Analysis</h4>
+<p class="text-caption font-caption text-on-surface-variant">ID: ULIS-2025-A1</p>
+</div>
+</div>
+</td>
+<td class="p-6">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-caption font-label-md">CORE RESEARCH</span>
+</td>
+<td class="p-6">
+<div class="flex items-center gap-2 text-primary font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                                    Verified
+                                </div>
+</td>
+<td class="p-6">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<a class="p-2 hover:bg-primary-container rounded-lg transition-colors text-primary" href="#" title="View PDF">
+<span class="material-symbols-outlined text-[20px]" data-icon="picture_as_pdf">picture_as_pdf</span>
+</a>
+<a class="p-2 hover:bg-primary-container rounded-lg transition-colors text-primary" href="#" title="Screenshots">
+<span class="material-symbols-outlined text-[20px]" data-icon="image">image</span>
+</a>
+<a class="p-2 hover:bg-primary-container rounded-lg transition-colors text-primary" href="#" title="Drive Link">
+<span class="material-symbols-outlined text-[20px]" data-icon="add_to_drive">add_to_drive</span>
+</a>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="glass-card group">
+<td class="p-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+</div>
+<div>
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Digital Archive Database Schema</h4>
+<p class="text-caption font-caption text-on-surface-variant">ID: ULIS-2025-A2</p>
+</div>
+</div>
+</td>
+<td class="p-6">
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-caption font-label-md">TECHNICAL</span>
+</td>
+<td class="p-6">
+<div class="flex items-center gap-2 text-primary font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                                    Verified
+                                </div>
+</td>
+<td class="p-6">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<a class="p-2 hover:bg-primary-container rounded-lg transition-colors text-primary" href="#"><span class="material-symbols-outlined text-[20px]" data-icon="link">link</span></a>
+<a class="p-2 hover:bg-primary-container rounded-lg transition-colors text-primary" href="#"><span class="material-symbols-outlined text-[20px]" data-icon="add_to_drive">add_to_drive</span></a>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="glass-card group">
+<td class="p-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="article">article</span>
+</div>
+<div>
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Ethics in Machine Translation</h4>
+<p class="text-caption font-caption text-on-surface-variant">ID: ULIS-2025-A3</p>
+</div>
+</div>
+</td>
+<td class="p-6">
+<span class="bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full text-caption font-label-md">THEORETICAL</span>
+</td>
+<td class="p-6">
+<div class="flex items-center gap-2 text-primary font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                                    Verified
+                                </div>
+</td>
+<td class="p-6">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<a class="p-2 hover:bg-primary-container rounded-lg transition-colors text-primary" href="#"><span class="material-symbols-outlined text-[20px]" data-icon="picture_as_pdf">picture_as_pdf</span></a>
+<a class="p-2 hover:bg-primary-container rounded-lg transition-colors text-primary" href="#"><span class="material-symbols-outlined text-[20px]" data-icon="add_to_drive">add_to_drive</span></a>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="glass-card group">
+<td class="p-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+</div>
+<div>
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Annotated Bibliography: AI Ethics</h4>
+<p class="text-caption font-caption text-on-surface-variant">ID: ULIS-2025-A4</p>
+</div>
+</div>
+</td>
+<td class="p-6">
+<span class="bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full text-caption font-label-md">LITERATURE</span>
+</td>
+<td class="p-6">
+<div class="flex items-center gap-2 text-primary font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                                    Verified
+                                </div>
+</td>
+<td class="p-6">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<a class="p-2 hover:bg-primary-container rounded-lg transition-colors text-primary" href="#"><span class="material-symbols-outlined text-[20px]" data-icon="picture_as_pdf">picture_as_pdf</span></a>
+<a class="p-2 hover:bg-primary-container rounded-lg transition-colors text-primary" href="#"><span class="material-symbols-outlined text-[20px]" data-icon="add_to_drive">add_to_drive</span></a>
+</div>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="glass-card group">
+<td class="p-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="data_usage">data_usage</span>
+</div>
+<div>
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Quantitative Data Visualization</h4>
+<p class="text-caption font-caption text-on-surface-variant">ID: ULIS-2025-A5</p>
+</div>
+</div>
+</td>
+<td class="p-6">
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-caption font-label-md">QUANTITATIVE</span>
+</td>
+<td class="p-6">
+<div class="flex items-center gap-2 text-primary font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                                    Verified
+                                </div>
+</td>
+<td class="p-6">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<a class="p-2 hover:bg-primary-container rounded-lg transition-colors text-primary" href="#"><span class="material-symbols-outlined text-[20px]" data-icon="image">image</span></a>
+<a class="p-2 hover:bg-primary-container rounded-lg transition-colors text-primary" href="#"><span class="material-symbols-outlined text-[20px]" data-icon="add_to_drive">add_to_drive</span></a>
+</div>
+</td>
+</tr>
+<!-- Row 6 -->
+<tr class="glass-card group">
+<td class="p-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+</div>
+<div>
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Final Reflective Synthesis</h4>
+<p class="text-caption font-caption text-on-surface-variant">ID: ULIS-2025-A6</p>
+</div>
+</div>
+</td>
+<td class="p-6">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-caption font-label-md">SYNTHESIS</span>
+</td>
+<td class="p-6">
+<div class="flex items-center gap-2 text-primary font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                                    Verified
+                                </div>
+</td>
+<td class="p-6">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<a class="p-2 hover:bg-primary-container rounded-lg transition-colors text-primary" href="#"><span class="material-symbols-outlined text-[20px]" data-icon="picture_as_pdf">picture_as_pdf</span></a>
+<a class="p-2 hover:bg-primary-container rounded-lg transition-colors text-primary" href="#"><span class="material-symbols-outlined text-[20px]" data-icon="add_to_drive">add_to_drive</span></a>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- ACADEMIC INTEGRITY COMMITMENT BADGE (As requested) -->
+<section class="mt-16 bg-on-surface p-8 lg:p-12 rounded-[2rem] text-surface-bright shadow-2xl relative overflow-hidden group">
+<!-- Internal background texture -->
+<div class="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-fixed to-transparent"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-1px h-8 bg-primary"></div>
+<span class="font-label-md text-label-md tracking-[0.2em] text-surface-variant/80 uppercase">Commitment</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg mb-6 group-hover:tracking-tight transition-all duration-700">Cam kết Liêm chính Học thuật</h3>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<div class="space-y-6">
+<p class="font-body-lg text-body-lg text-surface-variant/90 leading-relaxed italic">
+                                "Em, Lương Ngọc Kim Chi, cam kết rằng các báo cáo và nội dung trong portfolio này phản ánh đúng quá trình học tập và thực hành của bản thân. Trong quá trình làm, em có sử dụng AI như một công cụ hỗ trợ, chủ yếu để gợi ý cách trình bày, hỗ trợ sửa code và kiểm tra lại một số phần nội dung."
+                            </p>
+<p class="font-body-md text-body-md text-surface-variant/70 leading-relaxed">
+                                Với em, AI có thể giúp tiết kiệm thời gian và gợi ý hướng làm, nhưng không thể thay thế hoàn toàn việc tự học và tự làm bài. Em không tạo minh chứng giả, không ghi những sản phẩm không có thật và không cố tình trình bày sai quá trình thực hiện các bài tập của mình.
+                            </p>
+</div>
+<div class="flex flex-col justify-end lg:items-end">
+<div class="text-right border-t border-white/10 pt-8 w-full">
+<span class="font-label-md text-label-md text-surface-variant/50 uppercase block mb-2">Student Signature</span>
+<p class="font-headline-md text-headline-md text-surface-bright">Lương Ngọc Kim Chi</p>
+<p class="text-caption font-caption text-primary-fixed-dim mt-1">Verified Academic Identity • Digital ID: #ARCH-25-KC</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- FOOTER (Anchored Shared Component) -->
+<footer class="w-full py-8 mt-24 border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center px-0">
+<span class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">Academic Archive</span>
+<p class="font-caption text-caption text-on-surface-variant opacity-60">© 2025 ULIS - VNU. All Rights Reserved.</p>
+<div class="flex gap-6 mt-4 md:mt-0">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-caption text-caption" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-caption text-caption" href="#">Institutional Credits</a>
+</div>
+</footer>
+</main>
+<script>
+        // Micro-interaction for Gauge Ring
+        document.addEventListener('DOMContentLoaded', () => {
+            const ring = document.querySelector('.gauge-ring');
+            if(ring) {
+                // Total circumference is 2 * PI * r = 2 * 3.14 * 58 = 364.4
+                // We want 100% so offset = 0
+                setTimeout(() => {
+                    ring.style.strokeDashoffset = '0';
+                }, 300);
+            }
+
+            // Subtle parallax for the main content
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const canvas = document.querySelector('main');
+                if(canvas) {
+                    // canvas.style.backgroundPositionY = -(scrolled * 0.1) + 'px';
+                }
+            });
+        });
+    </script>
+</body></html>

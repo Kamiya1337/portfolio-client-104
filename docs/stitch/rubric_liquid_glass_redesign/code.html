@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Assessment &amp; Mastery Insights | Academic Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Load Design Tokens and Brand Anchors -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-tertiary-fixed": "#001e2e",
+                "tertiary-container": "#79a1bd",
+                "primary-fixed-dim": "#bfc2ff",
+                "on-primary-fixed": "#02026b",
+                "on-tertiary-container": "#05384f",
+                "on-tertiary-fixed-variant": "#204b63",
+                "on-primary-fixed-variant": "#373c95",
+                "on-primary-container": "#232781",
+                "on-secondary": "#ffffff",
+                "inverse-primary": "#bfc2ff",
+                "tertiary-fixed": "#c7e7ff",
+                "on-tertiary": "#ffffff",
+                "on-background": "#1a1c1c",
+                "secondary": "#6a5b56",
+                "surface-container": "#eeeeed",
+                "outline": "#767683",
+                "surface-dim": "#dadad9",
+                "error-container": "#ffdad6",
+                "surface-container-low": "#f4f3f2",
+                "error": "#ba1a1a",
+                "inverse-surface": "#2f3130",
+                "secondary-fixed": "#f2ded7",
+                "on-primary": "#ffffff",
+                "inverse-on-surface": "#f1f0f0",
+                "on-secondary-fixed-variant": "#51443f",
+                "on-error-container": "#93000a",
+                "primary-fixed": "#e0e0ff",
+                "on-secondary-container": "#70615c",
+                "tertiary-fixed-dim": "#a3cce9",
+                "outline-variant": "#c7c5d3",
+                "surface-bright": "#faf9f8",
+                "on-secondary-fixed": "#231915",
+                "on-surface-variant": "#464652",
+                "surface-container-lowest": "#ffffff",
+                "secondary-fixed-dim": "#d5c3bc",
+                "background": "#faf9f8",
+                "surface-container-highest": "#e3e2e1",
+                "tertiary": "#3a637c",
+                "on-error": "#ffffff",
+                "on-surface": "#1a1c1c",
+                "surface-variant": "#e3e2e1",
+                "secondary-container": "#f2ded7",
+                "surface-container-high": "#e9e8e7",
+                "primary-container": "#8e94f2",
+                "primary": "#4f55ae",
+                "surface": "#faf9f8",
+                "surface-tint": "#4f55ae"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "container-max": "1280px",
+                "gutter": "24px",
+                "margin-desktop": "64px",
+                "margin-mobile": "20px",
+                "unit": "8px"
+            },
+            "fontFamily": {
+                "headline-md": ["EB Garamond"],
+                "display-lg": ["EB Garamond"],
+                "label-md": ["Manrope"],
+                "headline-lg-mobile": ["EB Garamond"],
+                "headline-lg": ["EB Garamond"],
+                "caption": ["Manrope"],
+                "body-lg": ["Manrope"],
+                "body-md": ["Manrope"]
+            },
+            "fontSize": {
+                "headline-md": ["28px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #faf9f8;
+            overflow-x: hidden;
+        }
+        
+        .glass-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            backdrop-filter: blur(40px);
+            border: 0.5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.02);
+        }
+
+        .liquid-gradient {
+            background: linear-gradient(225deg, #e0e0ff 0%, #bfc2ff 50%, #8e94f2 100%);
+        }
+
+        .inner-glow {
+            box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.3);
+        }
+
+        .mask-text {
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .progress-liquid {
+            position: relative;
+            overflow: hidden;
+        }
+        .progress-liquid::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: translateX(-100%);
+            animation: flow 3s infinite;
+        }
+        @keyframes flow {
+            100% { transform: translateX(100%); }
+        }
+
+        /* Custom Scrollbar for side-nav */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- Background Atmospheric Elements -->
+<div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+<div class="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-primary-fixed-dim/20 blur-[120px]"></div>
+<div class="absolute -bottom-[20%] -right-[10%] w-[50%] h-[50%] rounded-full bg-tertiary-fixed-dim/20 blur-[120px]"></div>
+
+</div>
+<!-- SideNavBar (Desktop Anchor) -->
+<aside class="h-full w-80 fixed left-0 top-0 hidden lg:flex flex-col bg-inverse-surface dark:bg-on-tertiary-fixed backdrop-blur-[60px] border-r border-white/10 shadow-2xl z-50 py-8">
+<div class="px-8 mb-12">
+<h1 class="font-headline-lg text-headline-lg text-surface-bright leading-tight">Portfolio</h1>
+<p class="font-label-md text-label-md text-surface-variant/60 uppercase tracking-[0.2em] mt-1">Academic Year 2025–26</p>
+</div>
+<div class="px-8 mb-10">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full border border-white/20 bg-cover bg-center overflow-hidden" data-alt="A professional student portrait of a young Vietnamese woman with long dark hair, wearing a modern minimalist academic attire, set against a soft blurred studio background with lavender lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB1RMJCPGRFbCgvy4B0s05UP0uZxECDb-78BO6U1Z4PMQs9lI8YGKbuPmpxFOqxIY7A6oExhPqzZAzfek9SfDW9Isk_jUUJhMEIeSqAOoWjQhqWBfn_UkTTtT_m-L6m5WIJ220gzBcP154nx9BtzOTb7a3k1EcJkXXtL4b0N5CBNbg46_R73l1VBB3uCa0_uuAwcKk4Qf4VkX0XENq94iVrRizgIwq-HIC3uyMLs4Xb1LJ7o5B1xTLGUgrEAMvTjZcCLj6LfxsW6nIX')"></div>
+<div>
+<p class="font-label-md text-label-md text-surface-bright">Lương Ngọc Kim Chi</p>
+<p class="font-caption text-caption text-surface-variant">Academic Portfolio 2025-26</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-2 overflow-y-auto custom-scrollbar">
+<a class="text-surface-variant hover:text-surface-bright flex items-center p-4 mx-4 my-1 transition-all hover:bg-white/5 rounded-xl group" href="#">
+<span class="material-symbols-outlined mr-4 group-hover:scale-110 transition-transform">home</span>
+<span class="font-label-md text-label-md">01 Overview</span>
+</a>
+<a class="text-surface-variant hover:text-surface-bright flex items-center p-4 mx-4 my-1 transition-all hover:bg-white/5 rounded-xl group" href="#">
+<span class="material-symbols-outlined mr-4 group-hover:scale-110 transition-transform">assignment</span>
+<span class="font-label-md text-label-md">02 Assignments</span>
+</a>
+<a class="text-surface-variant hover:text-surface-bright flex items-center p-4 mx-4 my-1 transition-all hover:bg-white/5 rounded-xl group" href="#">
+<span class="material-symbols-outlined mr-4 group-hover:scale-110 transition-transform">verified</span>
+<span class="font-label-md text-label-md">03 Evidence</span>
+</a>
+<!-- Active Tab: Rubric -->
+<a class="bg-primary-container text-on-primary-container rounded-xl mx-4 my-1 flex items-center p-4 shadow-lg shadow-primary/20 translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined mr-4" style="font-variation-settings: 'FILL' 1;">rule</span>
+<span class="font-label-md text-label-md">04 Rubric</span>
+</a>
+<a class="text-surface-variant hover:text-surface-bright flex items-center p-4 mx-4 my-1 transition-all hover:bg-white/5 rounded-xl group" href="#">
+<span class="material-symbols-outlined mr-4 group-hover:scale-110 transition-transform">psychology</span>
+<span class="font-label-md text-label-md">05 Reflection</span>
+</a>
+</nav>
+<div class="px-8 mt-auto pt-8 border-t border-white/10">
+<button class="w-full bg-surface-bright text-on-tertiary-fixed font-label-md text-label-md py-3 rounded-xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                Download CV
+            </button>
+<div class="flex justify-between mt-6 px-2">
+<button class="text-surface-variant hover:text-surface-bright transition-colors"><span class="material-symbols-outlined">archive</span></button>
+<button class="text-surface-variant hover:text-surface-bright transition-colors"><span class="material-symbols-outlined">settings</span></button>
+</div>
+</div>
+</aside>
+<!-- TopAppBar (Web/Mobile Responsive) -->
+<header class="fixed top-0 lg:left-80 right-0 z-40 bg-white/40 dark:bg-black/40 backdrop-blur-[40px] border-b border-outline-variant/30 px-margin-mobile md:px-margin-desktop h-20 flex justify-between items-center">
+<div class="flex items-center gap-4">
+<span class="lg:hidden material-symbols-outlined text-on-surface">menu</span>
+<div class="flex items-baseline gap-2">
+<span class="font-label-md text-label-md uppercase tracking-widest text-primary">04</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Assessment &amp; Mastery Insights</h2>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-6">
+<div class="flex gap-4">
+<span class="font-label-md text-label-md text-on-surface-variant">Lương Ngọc Kim Chi</span>
+<span class="font-label-md text-label-md text-outline">/</span>
+<span class="font-label-md text-label-md text-on-surface-variant">2025–2026</span>
+</div>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-2 rounded-full hover:shadow-lg hover:shadow-primary/20 transition-all active:scale-95">Contact</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="lg:ml-80 pt-28 pb-20 px-margin-mobile md:px-margin-desktop min-h-screen">
+<div class="max-w-container-max mx-auto space-y-12">
+<!-- Hero Header Section -->
+<section class="flex flex-col md:flex-row justify-between items-end gap-8 border-b border-outline-variant/20 pb-12">
+<div class="max-w-2xl">
+<p class="font-label-md text-label-md text-primary uppercase tracking-[0.3em] mb-4">Academic Rubric Breakdown</p>
+<h3 class="font-display-lg text-display-lg text-on-surface leading-[1.1]">Validation of Academic Excellence.</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-6 leading-relaxed">
+                        An intricate mapping of core competencies demonstrated throughout the academic cycle. This matrix validates the convergence of theoretical rigor and applied creativity.
+                    </p>
+</div>
+<!-- Radial Mastery Gauge -->
+<div class="relative w-48 h-48 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90">
+<circle class="text-surface-container-highest" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-width="4"></circle>
+<circle class="text-primary" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-dasharray="552.9" stroke-dashoffset="55" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline-lg text-headline-lg text-on-surface">92%</span>
+<span class="font-label-md text-label-md text-primary uppercase tracking-tighter">Mastery</span>
+</div>
+<!-- Decorative blur behind gauge -->
+<div class="absolute inset-4 -z-10 bg-primary/10 blur-2xl rounded-full"></div>
+</div>
+</section>
+<!-- Rubric Grid (Bento Layout) -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter">
+<!-- 01 Conceptual Rigor -->
+<div class="lg:col-span-7 group">
+<div class="glass-card rounded-[32px] p-8 h-full flex flex-col transition-all hover:scale-[1.01] hover:border-primary/30">
+<div class="flex justify-between items-start mb-10">
+<div class="bg-primary/10 w-14 h-14 rounded-2xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[32px]">architecture</span>
+</div>
+<span class="font-label-md text-label-md text-primary bg-primary-container/20 px-4 py-1 rounded-full">Level: Advanced</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-4">Conceptual Rigor</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-1">
+                            Ability to synthesize complex theoretical frameworks from Linguistics and Cultural Studies into cohesive academic narratives. High attention to structural logic and evidentiary consistency.
+                        </p>
+<div class="space-y-4">
+<div class="flex justify-between font-label-md text-label-md text-on-surface-variant mb-1">
+<span>Mastery Progress</span>
+<span>95%</span>
+</div>
+<div class="h-3 bg-surface-container-highest rounded-full overflow-hidden progress-liquid">
+<div class="h-full bg-primary rounded-full transition-all duration-1000 ease-out" style="width: 95%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- 02 Visual Poetics -->
+<div class="lg:col-span-5 group">
+<div class="bg-inverse-surface text-surface-bright rounded-[32px] p-8 h-full flex flex-col shadow-2xl relative overflow-hidden transition-all hover:scale-[1.01]">
+<!-- Background texture for visual poetics -->
+<div class="absolute top-0 right-0 w-full h-full opacity-10 mix-blend-overlay pointer-events-none" data-alt="A macro photograph of fluid iridescent ink swirling in clear water, creating organic ethereal shapes and patterns. The color palette is composed of soft lavenders, pale blues, and pearlescent whites." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDt2lcdof-aJA3PJzeYmZuBHMmEHC_QoLn60FzVj1cxNxca6VEnox7UPRJIwhtbKcmJhNkCfLyC_N_GPlGStv5DN57r_8WACjHlYxmTWRhGymo1Y-HneOMUaLT-wBSCQxDISlC_Q0YjvqRncIOyBu5KLthdssqF6UlxbC2bd9DquiQQ8XhBKzDuEYUVpT9YzAI4HpVCnIkBc6Z6Kcpg4fiZNMp95gSyI21p5Qh6EID2u2h2Mltb5kwtby62OmpLWtHHDiAD-JMoixrp')"></div>
+<div class="flex justify-between items-start mb-10 relative z-10">
+<div class="bg-white/10 w-14 h-14 rounded-2xl flex items-center justify-center text-primary-fixed-dim">
+<span class="material-symbols-outlined text-[32px]">auto_awesome</span>
+</div>
+<span class="font-label-md text-label-md text-primary-fixed-dim border border-white/20 px-4 py-1 rounded-full">Level: Creative</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-4 relative z-10">Visual Poetics</h4>
+<p class="font-body-md text-body-md text-surface-variant/80 mb-8 flex-1 relative z-10">
+                            Integration of the "Liquid Glass" aesthetic into information design. Balancing minimalist structure with fluid creative expression.
+                        </p>
+<div class="space-y-4 relative z-10">
+<div class="flex justify-between font-label-md text-label-md text-surface-variant mb-1">
+<span>Mastery Progress</span>
+<span>88%</span>
+</div>
+<div class="h-3 bg-white/10 rounded-full overflow-hidden progress-liquid">
+<div class="h-full bg-primary-fixed-dim rounded-full transition-all duration-1000 ease-out" style="width: 88%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- 03 Digital Literacy -->
+<div class="lg:col-span-5 group">
+<div class="glass-card rounded-[32px] p-8 h-full flex flex-col transition-all hover:scale-[1.01] hover:border-tertiary-container">
+<div class="flex justify-between items-start mb-10">
+<div class="bg-tertiary-container/20 w-14 h-14 rounded-2xl flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[32px]">terminal</span>
+</div>
+<span class="font-label-md text-label-md text-tertiary-fixed-dim bg-on-tertiary-fixed px-4 py-1 rounded-full">Level: Expert</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-4">Digital Literacy</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-1">
+                            Proficiency in leveraging modern digital tools for academic curation. Mastery over AI-assisted workflows while maintaining strict ethical boundaries and academic integrity.
+                        </p>
+<div class="space-y-4">
+<div class="flex justify-between font-label-md text-label-md text-on-surface-variant mb-1">
+<span>Mastery Progress</span>
+<span>98%</span>
+</div>
+<div class="h-3 bg-surface-container-highest rounded-full overflow-hidden progress-liquid">
+<div class="h-full bg-tertiary-container rounded-full transition-all duration-1000 ease-out" style="width: 98%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- 04 Reflective Depth -->
+<div class="lg:col-span-7 group">
+<div class="relative rounded-[32px] p-8 h-full flex flex-col overflow-hidden border border-outline-variant/30 bg-surface-container-low transition-all hover:scale-[1.01]">
+<!-- Decorative mesh gradient -->
+<div class="absolute -bottom-20 -right-20 w-64 h-64 bg-primary/10 blur-3xl rounded-full opacity-50"></div>
+<div class="flex justify-between items-start mb-10">
+<div class="bg-secondary-container w-14 h-14 rounded-2xl flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[32px]">self_improvement</span>
+</div>
+<span class="font-label-md text-label-md text-secondary border border-secondary/20 px-4 py-1 rounded-full">Level: Proficient</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-4">Reflective Depth</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-1">
+                            Demonstrated capacity for metacognition—analyzing one's own learning process, identifying gaps, and formulating iterative improvements in academic performance.
+                        </p>
+<div class="space-y-4">
+<div class="flex justify-between font-label-md text-label-md text-on-surface-variant mb-1">
+<span>Mastery Progress</span>
+<span>82%</span>
+</div>
+<div class="h-3 bg-surface-container-highest rounded-full overflow-hidden progress-liquid">
+<div class="h-full bg-secondary-container rounded-full transition-all duration-1000 ease-out" style="width: 82%"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Insight Summary Section -->
+<section class="glass-card rounded-[40px] p-10 md:p-16 border-primary/20 bg-primary/[0.02]">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div>
+<h4 class="font-display-lg text-headline-lg text-on-surface mb-6 italic">Synthesizing Achievement</h4>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+                            The collective evidence within this portfolio confirms a trajectory of high academic distinction. The intersection of linguistic precision and digital fluencies creates a unique scholarly profile poised for future research excellence.
+                        </p>
+<div class="flex flex-wrap gap-4">
+<span class="bg-white px-6 py-2 rounded-full border border-outline-variant/30 font-label-md text-label-md shadow-sm">Academic Integrity: Verified</span>
+<span class="bg-white px-6 py-2 rounded-full border border-outline-variant/30 font-label-md text-label-md shadow-sm">Critical Analysis: High</span>
+<span class="bg-white px-6 py-2 rounded-full border border-outline-variant/30 font-label-md text-label-md shadow-sm">Language Mastery: CEFR C1</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white/60 p-6 rounded-[24px] border border-white/80 text-center">
+<p class="font-label-md text-label-md text-outline uppercase mb-2">Total Evidence</p>
+<p class="font-display-lg text-headline-lg text-primary">124</p>
+</div>
+<div class="bg-white/60 p-6 rounded-[24px] border border-white/80 text-center">
+<p class="font-label-md text-label-md text-outline uppercase mb-2">Project Score</p>
+<p class="font-display-lg text-headline-lg text-primary">A+</p>
+</div>
+<div class="bg-white/60 p-6 rounded-[24px] border border-white/80 text-center col-span-2">
+<p class="font-label-md text-label-md text-outline uppercase mb-2">Review Status</p>
+<div class="flex items-center justify-center gap-2 text-primary font-headline-md">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>Validated by Faculty</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer Section -->
+<footer class="lg:ml-80 bg-surface-container-low dark:bg-on-tertiary-fixed backdrop-blur-[20px] w-full py-8 border-t border-outline-variant/30 mt-auto z-40">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto gap-4">
+<div class="flex items-center gap-6">
+<span class="font-label-md text-label-md uppercase tracking-widest text-on-surface">Academic Archive</span>
+<span class="hidden md:block w-px h-4 bg-outline-variant/50"></span>
+<p class="font-caption text-caption text-on-surface-variant">© 2025 ULIS - VNU. All Rights Reserved.</p>
+</div>
+<nav class="flex gap-8">
+<a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-colors" href="#">Institutional Credits</a>
+<a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-colors" href="#">Social Connect</a>
+</nav>
+</div>
+</footer>
+<!-- Mobile Nav Bar (Visible only on mobile) -->
+<nav class="fixed bottom-0 left-0 right-0 lg:hidden bg-white/80 backdrop-blur-[40px] border-t border-outline-variant/30 z-50 flex justify-around items-center h-16 px-margin-mobile">
+<button class="text-on-surface-variant p-2 flex flex-col items-center gap-1">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-label-md">Home</span>
+</button>
+<button class="text-on-surface-variant p-2 flex flex-col items-center gap-1">
+<span class="material-symbols-outlined">verified</span>
+<span class="text-[10px] font-label-md">Evidence</span>
+</button>
+<button class="text-primary p-2 flex flex-col items-center gap-1 border-t-2 border-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">rule</span>
+<span class="text-[10px] font-label-md">Rubric</span>
+</button>
+<button class="text-on-surface-variant p-2 flex flex-col items-center gap-1">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-label-md">Profile</span>
+</button>
+</nav>
+<script>
+        // Micro-interactions for glass cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Simple enter animation for progress bars
+        window.addEventListener('DOMContentLoaded', () => {
+            const progressBars = document.querySelectorAll('.h-full.bg-primary, .h-full.bg-primary-fixed-dim, .h-full.bg-tertiary-container, .h-full.bg-secondary-container');
+            progressBars.forEach(bar => {
+                const finalWidth = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = finalWidth;
+                }, 400);
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Academic Archive | Reflection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#001e2e",
+                        "tertiary-container": "#79a1bd",
+                        "primary-fixed-dim": "#bfc2ff",
+                        "on-primary-fixed": "#02026b",
+                        "on-tertiary-container": "#05384f",
+                        "on-tertiary-fixed-variant": "#204b63",
+                        "on-primary-fixed-variant": "#373c95",
+                        "on-primary-container": "#232781",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#bfc2ff",
+                        "tertiary-fixed": "#c7e7ff",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "secondary": "#6a5b56",
+                        "surface-container": "#eeeeed",
+                        "outline": "#767683",
+                        "surface-dim": "#dadad9",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f4f3f2",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#2f3130",
+                        "secondary-fixed": "#f2ded7",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f1f0f0",
+                        "on-secondary-fixed-variant": "#51443f",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#e0e0ff",
+                        "on-secondary-container": "#70615c",
+                        "tertiary-fixed-dim": "#a3cce9",
+                        "outline-variant": "#c7c5d3",
+                        "surface-bright": "#faf9f8",
+                        "on-secondary-fixed": "#231915",
+                        "on-surface-variant": "#464652",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#d5c3bc",
+                        "background": "#faf9f8",
+                        "surface-container-highest": "#e3e2e1",
+                        "tertiary": "#3a637c",
+                        "on-error": "#ffffff",
+                        "on-surface": "#1a1c1c",
+                        "surface-variant": "#e3e2e1",
+                        "secondary-container": "#f2ded7",
+                        "surface-container-high": "#e9e8e7",
+                        "primary-container": "#8e94f2",
+                        "primary": "#4f55ae",
+                        "surface": "#faf9f8",
+                        "surface-tint": "#4f55ae"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["EB Garamond"],
+                        "display-lg": ["EB Garamond"],
+                        "label-md": ["Manrope"],
+                        "headline-lg-mobile": ["EB Garamond"],
+                        "headline-lg": ["EB Garamond"],
+                        "caption": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "body-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["28px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #faf9f8;
+            color: #1a1c1c;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(40px);
+            border: 0.5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(79, 85, 174, 0.05);
+        }
+        .glass-card-dark {
+            background: rgba(26, 28, 28, 0.85);
+            backdrop-filter: blur(40px);
+            border: 0.5px solid rgba(255, 255, 255, 0.1);
+        }
+        .liquid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.6;
+        }
+        .glow-edge {
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            border-left: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .active-tab-glow {
+            box-shadow: inset 0 0 10px rgba(142, 148, 242, 0.2);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c7c5d3;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased">
+<!-- Background Shader -->
+
+<!-- SideNavBar (Mobile Bottom / Desktop Left) -->
+<aside class="h-full w-80 fixed left-0 top-0 hidden lg:flex flex-col bg-inverse-surface dark:bg-on-tertiary-fixed backdrop-blur-[60px] border-r border-white/10 shadow-2xl py-8 z-50">
+<div class="px-8 mb-12">
+<h1 class="font-headline-lg text-headline-lg text-surface-bright leading-tight">Academic Archive</h1>
+<p class="font-label-md text-label-md text-surface-variant/60 uppercase tracking-widest mt-2">Portfolio 2025-26</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="text-surface-variant hover:text-surface-bright flex items-center p-4 mx-4 my-1 transition-all hover:bg-white/5 rounded-xl" href="#">
+<span class="material-symbols-outlined mr-4">home</span>
+<span class="font-label-md">01 Overview</span>
+</a>
+<a class="text-surface-variant hover:text-surface-bright flex items-center p-4 mx-4 my-1 transition-all hover:bg-white/5 rounded-xl" href="#">
+<span class="material-symbols-outlined mr-4">assignment</span>
+<span class="font-label-md">02 Assignments</span>
+</a>
+<a class="text-surface-variant hover:text-surface-bright flex items-center p-4 mx-4 my-1 transition-all hover:bg-white/5 rounded-xl" href="#">
+<span class="material-symbols-outlined mr-4">verified</span>
+<span class="font-label-md">03 Evidence</span>
+</a>
+<a class="text-surface-variant hover:text-surface-bright flex items-center p-4 mx-4 my-1 transition-all hover:bg-white/5 rounded-xl" href="#">
+<span class="material-symbols-outlined mr-4">rule</span>
+<span class="font-label-md">04 Rubric</span>
+</a>
+<!-- Active State -->
+<a class="bg-primary-container text-on-primary-container rounded-xl mx-4 my-1 flex items-center p-4 shadow-lg scale-[1.02] transition-transform" href="#">
+<span class="material-symbols-outlined mr-4" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="font-label-md">05 Reflection</span>
+</a>
+</nav>
+<div class="mt-auto px-8 space-y-6">
+<div class="flex items-center space-x-4">
+<div class="w-12 h-12 rounded-full border border-white/20 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional and elegant portrait of a Vietnamese student with soft, natural lighting in an academic setting. The aesthetic is clean and high-key, matching the light-mode portfolio theme with soft lavenders and whites in the blurred background. She is smiling gently at the camera, wearing professional business casual attire." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdV4-FNG6KfkjzR4gnmS4y-AAhTN3ELtGZg9ThU-xvy-RGsG5zEpohYKBf5kG015bpw-XCTV6Dna2fLvdYAKgql4jJcAEggYFg1UtodQA25aaDfHPam_Rq77O2HGA9zbotk4hcFHIr2dUQKDXn23U4ZM_Y113cUIsnMZifWn2oKXsYWQekLKwwVdiBXa06e53ioFyVTGW6iiV5GTsbi2reRJjV48BtILmkTaB5s7CIcsMYVulEMWWstVJ3VnMOeCosys5T6Kvd0ZIu"/>
+</div>
+<div>
+<p class="font-label-md text-surface-bright">Lương Ngọc Kim Chi</p>
+<p class="font-caption text-caption text-surface-variant">Linguistics Student</p>
+</div>
+</div>
+<button class="w-full py-3 bg-white/10 hover:bg-white/20 text-surface-bright border border-white/10 rounded-full font-label-md transition-all active:scale-95">
+                Download CV
+            </button>
+<div class="flex justify-between text-surface-variant/40 pt-4 border-t border-white/5">
+<span class="material-symbols-outlined cursor-pointer hover:text-surface-bright transition-colors">archive</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-surface-bright transition-colors">settings</span>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="lg:ml-80 min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 left-0 lg:left-80 z-40 bg-white/40 backdrop-blur-[40px] border-b border-white/20 shadow-sm">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-on-surface">Reflection / <span class="text-primary">Tổng kết</span></div>
+<div class="hidden md:flex space-x-8">
+<span class="font-label-md text-label-md text-on-surface-variant/60">ACADEMIC YEAR 2025-26</span>
+</div>
+<button class="px-6 py-2 rounded-full border border-primary text-primary font-label-md hover:bg-primary hover:text-white transition-all active:scale-95">
+                    Contact
+                </button>
+</div>
+</header>
+<!-- Content Area -->
+<div class="mt-20 px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto w-full flex-1">
+<!-- Hero Title -->
+<section class="mb-16">
+<h2 class="font-display-lg text-display-lg text-on-surface mb-4 leading-none">Synthesis &amp; <br/><span class="italic text-primary/80">Critical Growth</span></h2>
+<div class="h-1 w-24 bg-primary-container rounded-full mb-8"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    Reflecting on the semester's linguistic explorations and academic development. This section captures the convergence of theoretical knowledge and practical application.
+                </p>
+</section>
+<!-- Bento Grid of Reflection -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Key Learnings Card -->
+<div class="md:col-span-8 glass-card rounded-3xl p-8 glow-edge">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-primary text-4xl">lightbulb</span>
+<div class="px-3 py-1 bg-primary-fixed text-on-primary-fixed-variant rounded-full font-label-md text-[10px] tracking-widest uppercase">Learning Milestone</div>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4 text-on-surface">Key Learnings &amp; Methodology</h3>
+<div class="space-y-6 text-on-surface-variant">
+<p>Throughout the course, the transition from purely observational analysis to systemic critical thinking has been my most significant achievement. I've developed a deeper understanding of how sociocultural factors influence language evolution within the Vietnamese-Korean linguistic bridge.</p>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white/30 p-4 rounded-2xl border border-white/50">
+<span class="font-label-md text-primary block mb-1">Theoretical Depth</span>
+<p class="text-sm">Mastery of advanced semantic structures and phonetic variance.</p>
+</div>
+<div class="bg-white/30 p-4 rounded-2xl border border-white/50">
+<span class="font-label-md text-primary block mb-1">Practical Agility</span>
+<p class="text-sm">Enhanced speed in real-time translation and syntax reconstruction.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Growth Metric Card -->
+<div class="md:col-span-4 glass-card rounded-3xl p-8 flex flex-col justify-between glow-edge bg-gradient-to-br from-primary/10 to-transparent">
+<div>
+<h3 class="font-headline-md text-headline-md mb-2 text-on-surface">Growth Metric</h3>
+<p class="font-caption text-caption text-on-surface-variant/70 mb-8 uppercase tracking-widest">Self-Assessment Index</p>
+<div class="space-y-6">
+<div class="space-y-2">
+<div class="flex justify-between font-label-md text-xs">
+<span>Research Autonomy</span>
+<span>94%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[94%] rounded-full shadow-[0_0_8px_rgba(79,85,174,0.4)]"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between font-label-md text-xs">
+<span>Critical Synthesis</span>
+<span>88%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[88%] rounded-full"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between font-label-md text-xs">
+<span>Linguistic Precision</span>
+<span>91%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[91%] rounded-full shadow-[0_0_8px_rgba(79,85,174,0.4)]"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 flex justify-center">
+
+</div>
+</div>
+<!-- Challenges Overcome -->
+<div class="md:col-span-12 glass-card rounded-3xl p-8 md:p-12 glow-edge">
+<div class="flex flex-col md:flex-row gap-12">
+<div class="md:w-1/3">
+<h3 class="font-headline-md text-headline-md mb-4 text-on-surface">Challenges Overcome</h3>
+<p class="text-on-surface-variant mb-6">Navigating complex sociolinguistic landscapes required overcoming significant hurdles in data collection and interpretive bias.</p>
+<div class="flex -space-x-4">
+<div class="w-10 h-10 rounded-full border-2 border-white bg-primary-fixed flex items-center justify-center text-primary font-bold text-xs">ULIS</div>
+<div class="w-10 h-10 rounded-full border-2 border-white bg-tertiary-fixed flex items-center justify-center text-tertiary font-bold text-xs">VNU</div>
+</div>
+</div>
+<div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="p-6 bg-surface-container-low/50 rounded-2xl border border-white/40">
+<span class="material-symbols-outlined text-primary mb-3">psychology_alt</span>
+<h4 class="font-label-md mb-2">Bias Mitigation</h4>
+<p class="text-sm text-on-surface-variant">Developed a cross-reference framework to eliminate personal interpretative bias in semantic mapping.</p>
+</div>
+<div class="p-6 bg-surface-container-low/50 rounded-2xl border border-white/40">
+<span class="material-symbols-outlined text-primary mb-3">storage</span>
+<h4 class="font-label-md mb-2">Data Integrity</h4>
+<p class="text-sm text-on-surface-variant">Restructured archiving workflows to maintain 100% verifiability across digital and physical evidence.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Academic Integrity Pledge (Dark Theme Focal Point) -->
+<div class="md:col-span-12 glass-card-dark rounded-3xl p-8 md:p-16 text-white overflow-hidden relative">
+<!-- Background accent glow -->
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-primary/20 blur-[100px] rounded-full"></div>
+<div class="relative z-10 max-w-4xl mx-auto">
+<div class="font-label-md text-primary-fixed-dim tracking-[0.2em] uppercase mb-6 opacity-80">Academic Integrity</div>
+<h3 class="font-headline-lg text-headline-lg mb-10 leading-tight">Cam kết Liêm chính Học thuật</h3>
+<div class="space-y-8 font-body-lg text-surface-variant/90 leading-relaxed italic">
+<p>
+                                Em, Lương Ngọc Kim Chi, cam kết rằng các báo cáo và nội dung trong portfolio này phản ánh đúng quá trình học tập và thực hành của bản thân. Trong quá trình làm, em có sử dụng AI như một công cụ hỗ trợ, chủ yếu để gợi ý cách trình bày, hỗ trợ sửa code và kiểm tra lại một số phần nội dung.
+                            </p>
+<p>
+                                Với em, AI có thể giúp tiết kiệm thời gian và gợi ý hướng làm, nhưng không thể thay thế hoàn toàn việc tự học và tự làm bài. Em không tạo minh chứng giả, không ghi những sản phẩm không có thật và không cố tình trình bày sai quá trình thực hiện các bài tập của mình.
+                            </p>
+<p>
+                                Em cảm ơn thầy cô đã dành thời gian xem portfolio này.
+                            </p>
+</div>
+<div class="mt-16 pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-end gap-8">
+<div>
+<div class="font-label-md text-surface-variant/50 uppercase tracking-widest mb-2 text-xs">Student Signature</div>
+<div class="font-headline-md text-headline-md text-surface-bright tracking-wide">Lương Ngọc Kim Chi</div>
+<div class="h-0.5 w-full bg-gradient-to-r from-primary to-transparent mt-1"></div>
+</div>
+<div class="text-right">
+<div class="font-label-md text-surface-variant/50 uppercase tracking-widest mb-2 text-xs">Date of Final Submission</div>
+<div class="text-surface-bright font-mono">2025.06.12</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="w-full py-8 mt-auto bg-surface-container-low/40 backdrop-blur-[20px] border-t border-outline-variant/30">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto gap-4">
+<div class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">© 2025 ULIS - VNU. All Rights Reserved.</div>
+<div class="flex space-x-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors text-xs font-label-md" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-xs font-label-md" href="#">Institutional Credits</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-xs font-label-md" href="#">Social Connect</a>
+</div>
+</div>
+</footer>
+</main>
+<!-- Mobile Navigation (Bottom Bar) -->
+<nav class="lg:hidden fixed bottom-6 left-6 right-6 h-16 bg-inverse-surface/90 backdrop-blur-xl rounded-full flex justify-around items-center px-6 z-50 shadow-2xl border border-white/10">
+<span class="material-symbols-outlined text-surface-variant cursor-pointer">home</span>
+<span class="material-symbols-outlined text-surface-variant cursor-pointer">assignment</span>
+<span class="material-symbols-outlined text-surface-variant cursor-pointer">verified</span>
+<span class="material-symbols-outlined text-surface-variant cursor-pointer">rule</span>
+<div class="relative flex flex-col items-center">
+<span class="material-symbols-outlined text-primary-fixed-dim" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<div class="absolute -bottom-2 w-1 h-1 bg-primary-fixed-dim rounded-full"></div>
+</div>
+</nav>
+<script>
+        // Micro-interactions and floating effects
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.glass-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                if (x > 0 && x < rect.width && y > 0 && y < rect.height) {
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                }
+            });
+        });
+    </script>
+</body></html>
