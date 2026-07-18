@@ -34,7 +34,7 @@ export default function Sidebar({ activeTab, setActiveTab, isMobileOpen, setIsMo
           <p className="font-display text-4xl font-medium tracking-[-0.02em] text-white">Portfolio</p>
           <p className="mt-2 text-[10px] font-extrabold uppercase tracking-[0.18em] text-white/45">Academic Year {student.academicYear}</p>
           <div className="mt-9 flex items-center gap-3 rounded-3xl border border-white/10 bg-white/[0.06] p-3 backdrop-blur-2xl">
-            <img src="/images.jpg" alt={`${student.name} portfolio owner`} className="h-14 w-14 rounded-2xl border border-white/15 object-cover shadow-md" />
+            <img src="/avatar-dinh-thai-son.jpg" alt={`${student.name} portfolio owner`} className="h-14 w-14 rounded-2xl border border-white/15 object-cover shadow-md" />
             <div className="space-y-1 text-[10px] font-bold uppercase tracking-[0.1em] text-white/62">
               <p className="text-white">{student.name}</p>
               <p>{student.shortUniversity}</p>
