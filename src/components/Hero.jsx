@@ -52,7 +52,7 @@ export default function Hero({ student, setActiveTab }) {
             <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-tertiary-blue/70 blur-3xl" aria-hidden="true" />
             <img
               className="relative aspect-[4/5] w-full rounded-[2.1rem] object-cover object-center shadow-glow"
-              src="/images.jpg"
+              src="/avatar-dinh-thai-son.jpg"
               alt={`${student.name} portfolio hero avatar`}
               aria-label={`${student.name} portfolio hero media`}
             />
