@@ -31,7 +31,7 @@ export const portfolioData = {
       process: "Phân tích nhu cầu lưu trữ học tập, thiết lập cây thư mục theo môn học/kỳ học. Áp dụng quy tắc đặt tên file không dấu, dùng gạch dưới để dễ dàng tìm kiếm.",
       evidenceImg: "/images/Bài 1.png",
       report: "/docs/bai-1.pdf",
-      status: "Đang hoàn thiện"
+      status: "Hoàn thiện"
     },
     {
       id: 2,
@@ -43,7 +43,7 @@ export const portfolioData = {
       process: "Sử dụng Google Scholar kết hợp các toán tử (AND, OR, filetype:pdf) để tìm tài liệu về thiết kế vi mạch. Lọc và đánh giá 3 nguồn tài liệu dựa trên 5 tiêu chí CRAAP (Độ mới, Mức độ phù hợp, Thẩm quyền, Độ chính xác, Mục đích).",
       evidenceImg: "/images/Bài 2.png",
       report: "/docs/bai-2.pdf",
-      status: "Đang hoàn thiện"
+      status: "Hoàn thiện"
     },
     {
       id: 3,
@@ -55,7 +55,7 @@ export const portfolioData = {
       process: "Thiết lập cấu trúc prompt bao gồm: Vai trò (Role), Ngữ cảnh (Context), Nhiệm vụ (Task) và Định dạng đầu ra (Format). Thử nghiệm nhờ AI giải thích một khái niệm vật lý bán dẫn và so sánh kết quả trước/sau khi tối ưu prompt.",
       evidenceImg: "/images/Bài 3.png",
       report: "/docs/bai-3.pdf",
-      status: "Đang hoàn thiện"
+      status: "Hoàn thiện"
     },
     {
       id: 4,
@@ -67,7 +67,7 @@ export const portfolioData = {
       process: "Thiết lập không gian làm việc chung. Phân chia task rõ ràng, đặt deadline và theo dõi tiến độ qua bảng Kanban. Tổ chức họp nhóm qua Google Meet và ghi biên bản họp trực tuyến.",
       evidenceImg: "/images/Bài 4.png",
       report: "/docs/bai-4.pdf",
-      status: "Đang hoàn thiện"
+      status: "Hoàn thiện"
     },
     {
       id: 5,
@@ -79,7 +79,7 @@ export const portfolioData = {
       process: "Lên ý tưởng kịch bản bằng Gemini Pro. Sử dụng các công cụ tạo sinh (Midjourney/D-ALL E hoặc Canva AI) để thiết kế hình ảnh minh họa cho một bài thuyết trình về công nghệ. Tinh chỉnh thiết kế thủ công để đạt độ hoàn thiện cao.",
       evidenceImg: "/images/Bài 5.png",
       report: "/docs/bai-5.pdf",
-      status: "Đang hoàn thiện"
+      status: "Hoàn thiện"
     },
     {
       id: 6,
@@ -91,16 +91,16 @@ export const portfolioData = {
       process: "Nghiên cứu các quy định về đạo văn và liêm chính. Đúc kết bộ 5 nguyên tắc cá nhân: Luôn kiểm chứng thông tin do AI tạo ra, minh bạch công cụ sử dụng, không dùng AI để thi hộ/làm hộ 100%, bảo vệ dữ liệu cá nhân khi chat với AI, và tôn trọng bản quyền.",
       evidenceImg: "/images/Bài 6.png",
       report: "/docs/bai-6.pdf",
-      status: "Đang hoàn thiện"
+      status: "Hoàn thiện"
     }
   ],
   rubric: [
-    { criteria: "Thiết kế và cấu trúc Portfolio", excellent: "Chuyên nghiệp, sáng tạo, điều hướng tốt, UI/UX hiện đại.", status: "Hoàn thiện 90%", action: "Bổ sung ảnh minh họa thực tế" },
-    { criteria: "Bài 1: Quản lý tệp/thư mục", excellent: "Cấu trúc tối ưu, quy tắc đặt tên rõ ràng, minh họa sắc nét.", status: "Chưa có ảnh", action: "Chụp ảnh màn hình cấu trúc thư mục trên máy tính" },
-    { criteria: "Bài 2: Tìm kiếm & Đánh giá", excellent: "Bảng đánh giá CRAAP chi tiết, dùng toán tử nâng cao hiệu quả.", status: "Đang viết báo cáo", action: "Hoàn thiện file PDF báo cáo CRAAP" },
-    { criteria: "Bài 3: Viết Prompt hiệu quả", excellent: "So sánh rõ ràng trước/sau, phân tích lỗi và cải tiến sâu sắc.", status: "Thiếu dữ liệu", action: "Chụp ảnh màn hình đoạn chat với AI" },
-    { criteria: "Bài 4: Hợp tác trực tuyến", excellent: "Minh chứng rõ việc chia task, họp nhóm và quản lý tiến độ.", status: "Thiếu dữ liệu", action: "Chụp ảnh Trello/Notion nhóm" },
-    { criteria: "Bài 5: Sáng tạo nội dung với AI", excellent: "Sản phẩm đẹp, sáng tạo, trích dẫn rõ phần nào dùng AI.", status: "Chưa có sản phẩm", action: "Upload video/hình ảnh hoàn thiện" },
-    { criteria: "Bài 6: AI có trách nhiệm", excellent: "Bộ nguyên tắc cá nhân chặt chẽ, tư duy phản biện cao.", status: "Đang soạn thảo", action: "Viết chi tiết bộ 5 nguyên tắc ra Word" },
+    { criteria: "Thiết kế và cấu trúc Portfolio", excellent: "Chuyên nghiệp, sáng tạo, điều hướng tốt, UI/UX hiện đại.", status: "Hoàn thiện", action: "Đã hoàn thiện cấu trúc & giao diện portfolio" },
+    { criteria: "Bài 1: Quản lý tệp/thư mục", excellent: "Cấu trúc tối ưu, quy tắc đặt tên rõ ràng, minh họa sắc nét.", status: "Hoàn thiện", action: "Đã hoàn thiện báo cáo & ảnh màn hình cấu trúc thư mục" },
+    { criteria: "Bài 2: Tìm kiếm & Đánh giá", excellent: "Bảng đánh giá CRAAP chi tiết, dùng toán tử nâng cao hiệu quả.", status: "Hoàn thiện", action: "Đã hoàn thiện file PDF báo cáo CRAAP" },
+    { criteria: "Bài 3: Viết Prompt hiệu quả", excellent: "So sánh rõ ràng trước/sau, phân tích lỗi và cải tiến sâu sắc.", status: "Hoàn thiện", action: "Đã hoàn thiện minh chứng và báo cáo prompt AI" },
+    { criteria: "Bài 4: Hợp tác trực tuyến", excellent: "Minh chứng rõ việc chia task, họp nhóm và quản lý tiến độ.", status: "Hoàn thiện", action: "Đã hoàn thiện minh chứng Trello/Notion nhóm" },
+    { criteria: "Bài 5: Sáng tạo nội dung với AI", excellent: "Sản phẩm đẹp, sáng tạo, trích dẫn rõ phần nào dùng AI.", status: "Hoàn thiện", action: "Đã hoàn thiện sản phẩm & hình ảnh minh họa AI" },
+    { criteria: "Bài 6: AI có trách nhiệm", excellent: "Bộ nguyên tắc cá nhân chặt chẽ, tư duy phản biện cao.", status: "Hoàn thiện", action: "Đã hoàn thiện chi tiết bộ 5 nguyên tắc AI" },
   ]
 };
